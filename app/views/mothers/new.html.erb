@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="col-4 offset-4">
+    <h1>Add your mother</h1>
+    <%= simple_form_for [@user, @mother] do |t|%>
+    <%= t.input :name %>
+    <%= t.input :age %>
+    <%= t.input :location %>
+    <%= t.input :price %>
+    <%= t.input :hobbies %>
+    <%= t.input :description %>
+    <%= t.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= t.submit %>
+    <% end %>
+  </div>
+</div>
