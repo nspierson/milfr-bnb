@@ -6,5 +6,6 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :mothers, through: :bookings
   has_one_attached :avatar
-  validates :name, :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
+  validates :name, presence: true
 end
