@@ -6,6 +6,9 @@
       <%= mother.name %>
       <%= mother.age %>
       <%= link_to"",mother_path(mother) %>
+      <% mother.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
       </li>
     <% end %>
 </ul>

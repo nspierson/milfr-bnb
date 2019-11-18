@@ -26,6 +26,7 @@ class MothersController < ApplicationController
   def show
     @mother = Mother.find(params[:id])
   end
+
   private
 
   def set_user
