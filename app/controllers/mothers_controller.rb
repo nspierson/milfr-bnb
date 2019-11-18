@@ -24,4 +24,15 @@ class MothersController < ApplicationController
   def mother_params
     params.require(:mother).permit(:name, :location, :age, :user_id, :hobbies, :price, :description, photos: [])
   end
+
+  def show
+    @mother = Mother.find(params[:id])
+  end
+
+
+  private
+
+  def mother_params
+    params.require(:mother).permit(:name, :age, :description, :hobbies, :location)
+  end
 end
