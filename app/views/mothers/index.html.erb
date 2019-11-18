@@ -1,11 +1,23 @@
+
 <h1> Mothers </h1>
 
-<ul>
-    <% @mothers.each do |mother| %>
-      <li>
-      <%= mother.name %>
-      <%= mother.age %>
-      <%= link_to"",mother_path(mother) %>
-      </li>
-    <% end %>
-</ul>
+
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <% @mothers.each do |mother| %>
+          <div class="card">
+          <%= mother.name %>
+          <%= mother.age %>
+          <%= link_to 'go' ,mother_path(mother) %>
+          </div>
+        <% end %>
+    </div>
+
+    <div class="col-4">
+      <img id="map" src='https://raw.githubusercontent.com/lewagon/layouts-demo/gh-pages/images/mapbox.png'>
+    </div>
+
+    </div>
+  </div>
+</div>
