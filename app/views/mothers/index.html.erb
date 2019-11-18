@@ -1,12 +1,12 @@
 
-<h1> Mothers </h1>
 
 
 <div class="container">
   <div class="row">
     <div class="col-8">
+      <h1> Our selection of Mothers </h1>
       <% @mothers.each do |mother| %>
-          <div class="card">
+          <div class="card" data-aos="fade-up">
           <%= mother.name %>
           <%= mother.age %>
           <%= link_to 'go' ,mother_path(mother) %>
