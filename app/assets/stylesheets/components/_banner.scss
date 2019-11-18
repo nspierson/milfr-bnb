@@ -19,3 +19,16 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
+#banner {
+  background-size: cover;
+  height: 90vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.banner-content {
+  color: white;
+}
