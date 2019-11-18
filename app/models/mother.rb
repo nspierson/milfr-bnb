@@ -1,8 +1,8 @@
 class Mother < ApplicationRecord
   belongs_to :user
   has_many :bookings
-  has_many_attached :photos
-  validates :name, presence: true, uniqueness: true
-  validates :age, :hobbies, :location, presence: true
-  # validates :photos, attached: true
+ # has_many_attached :photos
+ # validates :name, presence: true, uniqueness: true
+ # validates :age, :hobbies, :location, presence: true
+  #validates :photos, attached: true
 end
