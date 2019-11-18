@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :bookings
   has_many :mothers, through: :bookings
+  has_one_attached :avatar
   validates :name, :email, presence: true, uniqueness: true
 end

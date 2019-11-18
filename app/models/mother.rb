@@ -4,4 +4,5 @@ class Mother < ApplicationRecord
   has_many_attached :photos
   validates :name, presence: true, uniqueness: true
   validates :age, :hobbies, :location, presence: true
+  validates :photos, attached: true
 end
