@@ -1,0 +1,11 @@
+<h1> Mothers </h1>
+
+<ul>
+    <% @mothers.each do |mother| %>
+      <li>
+      <%= mother.name %>
+      <%= mother.age %>
+      <%= link_to"",mother_path(mother) %>
+      </li>
+    <% end %>
+</ul>
