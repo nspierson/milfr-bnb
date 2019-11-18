@@ -2,13 +2,51 @@
   <div class="container">
     <h1><%= @mother.name %></h1>
     <p><%= @mother.description %></p>
-    <%= link_to "Book now", "#", class: "btn btn-flat" %>
   </div>
 </div>
 <div class="container">
-  <h1><%= @mother.name %></h1>
-  <p>Age: <%= @mother.age %></p>
-  <p>Location: <%= @mother.location %></p>
-  <p>Hobbies: <%= @mother.hobbies %></p>
-  <p>Description: <%= @mother.description %></p>
+  <div class="d-flex">
+    <div class="mother-info col-8 d-flex">
+      <div>
+        <h1><%= @mother.name %></h1>
+        <p>Age: <%= @mother.age %></p>
+        <p>Location: <%= @mother.location %></p>
+        <p>Hobbies: <%= @mother.hobbies %></p>
+        <p>Description: <%= @mother.description %></p>
+        <p>Price: <%= @mother.price %></p>
+        <p>fds</p>
+        <p>fds</p>
+        <p>fds</p>
+        <p>fds</p>
+        <p>df</p>
+        <p>fds</p>
+        <p>df</p>
+        <p>gdf</p>
+        <p>fds</p>
+        <p>fds</p>
+        <p>fds</p>
+        <p>fds</p>
+        <p>df</p>
+        <p>fds</p>
+        <p>df</p>
+        <p>gdf</p>
+      </div>
+      <div class="mother-info-owner-avatar">
+      avatar
+      </div>
+    </div>
+    <div class="booking-card col-3 offset-1">
+      <div class="container">
+        <h3 class="text-center">Ajoutez des dates pour voir le prix</h3>
+      </div>
+      <div>
+        <p class="text-center"><%= link_to "Book now", "#", class: "btn btn-flat" %></p>
+      </div>
+      <div>
+        <p>Cette belle-mère attire beaucoup l'attention.
+           L'annonce a été consultée plus de 500 fois au cours de la dernière semaine.
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
