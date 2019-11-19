@@ -2,10 +2,11 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 100%;
 }
 
 .card-trip > img {
-  height: 400px;
+  height: 300px;
   width: 100%;
   object-fit: cover;
 }
@@ -14,12 +15,14 @@
   font-size: 24px;
   font-weight: bold;
   margin: 0;
+  padding-top: 16px;
 }
 
 .card-trip p {
   font-size: 16px;
   opacity: .7;
   margin: 0;
+  padding-top: 20px
 }
 
 

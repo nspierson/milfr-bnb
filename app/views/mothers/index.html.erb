@@ -4,16 +4,16 @@
 
 
 <div class="container">
-  <div class="row">
+  <div class="row mb-3">
       <h1> Our selection of Mothers </h1>
     <div class="col-8 grid px-3" >
       <% @mothers.each do |mother| %>
           <%= link_to mother_path(mother)  do%>
             <div class="card-trip p-3" data-aos="fade-up">
                 <%= cl_image_tag mother.photos.sample.key, height: 300, width: 400, crop: :fill %>
-                <h2><%= mother.name %></h2>
+                <h2><%= mother.name%></h2>
                 <p><%= mother.age %> yo</p>
-                <p><%= mother.description %></p>
+                <p><%= mother.description.first(20) %>...</p>
 
             </div>
           <% end %>
