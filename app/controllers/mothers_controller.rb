@@ -6,13 +6,14 @@ class MothersController < ApplicationController
     @mothers = Mother.all
   end
 
+  def new
+    @mother = Mother.new
+  end
+
   def show
     @mother = Mother.find(params[:id])
   end
 
-  def new
-    @mother = Mother.new
-  end
 
   def create
     @mother = Mother.new(mother_params)
