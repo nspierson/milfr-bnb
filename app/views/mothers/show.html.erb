@@ -36,8 +36,8 @@
         <p>Location: <%= @mother.location %></p>
         <p>Hobbies: <%= @mother.hobbies %></p>
         <p>Description: <%= @mother.description %></p>
-        <p>Price: <%= @mother.price %></p>
-      </div>
+        <p>Price: <%= @mother.price %> €</p>
+       </div>
       <div class="mother-info-owner-avatar">
           <% if User.find(@mother.user_id).avatar.attached? %>
             <%= cl_image_tag User.find(@mother.user_id).avatar.key, title: User.find(@mother.user_id).name, class: "avatar" %>
@@ -51,11 +51,13 @@
         <h3 class="text-center">Ajoutez des dates pour voir le prix</h3>
       </div>
           <%= simple_form_for [@mother, @booking] do |f| %>
-          <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+          <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_start"} %>
           <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
-          <%= f.button :submit, "Book now", class: "btn btn-flat" %>
-      <% end %>
-
+          <div class="d-flex justify-content-between align-items-center">
+            <%= f.button :submit, "Book now", class: "btn btn-flat" %>
+            <h3 class="font-weight-bold"><%= "#{@mother.price * 3} €"%></h3>
+          </div>
+          <% end %>
       <div>
         <p class="text-center"></p>
       </div>

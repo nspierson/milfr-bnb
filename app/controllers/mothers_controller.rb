@@ -19,12 +19,12 @@ class MothersController < ApplicationController
     @review = Review.new
   end
 
-
   def create
     @mother = Mother.new(mother_params)
     @mother.user = @user
     if @mother.save
-      redirect_to user_mother_path(@mother)
+      flash[:alert] = "Your mother has been created."
+      redirect_to mother_path(@mother)
     else
       render :new
     end
