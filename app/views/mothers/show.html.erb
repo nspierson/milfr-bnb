@@ -1,33 +1,5 @@
 <div class="container">
-  <div id="carouselExampleFade" class="col-12 carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-        <% @mother.photos.each do |photo| %>
-          <% if photo == @mother.photos.first %>
-            <div class="carousel-item active">
-            <%= cl_image_tag photo.key, class: "d-block w-100"%>
-            </div>
-          <% else %>
-            <div class="carousel-item" data-interval="2000">
-              <%= cl_image_tag photo.key, class: "d-block w-100"%>
-            </div>
-          <% end %>
-        <% end %>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-  </div>
-          <p class="text-center"></p>
+  <%= render "caroussel-show" %>
   <div class="d-flex">
     <div class="mother-info col-8 d-flex">
       <div>
@@ -44,6 +16,14 @@
           <% else %>
             <%= image_tag "http://icons.iconarchive.com/icons/gianni-polito/colobrush/256/software-crystal-msn-icon.png", width: 40 %>
           <% end %>
+        </div>
+      </div>
+      <div class="mother-info-info">
+        <p>Age: <%= @mother.age %></p>
+        <p>Location: <%= @mother.location %></p>
+        <p>Hobbies: <%= @mother.hobbies %></p>
+        <p>Description: <%= @mother.description %></p>
+        <p>Price per day: <%= @mother.price %> €</p>
       </div>
     </div>
     <div class="booking-card col-3 offset-1">
@@ -68,30 +48,5 @@
       </div>
     </div>
   </div>
-
-   <!-- **********************reviews************** -->
-
-  <div class="reviews-info col-8">
-      <h2>Reviews:</h2>
-      <ul>
-        <% @mother.reviews.each do |review| %>
-        <div class="reviews-info-owner-avatar">
-            <% if User.find(review.user_id).avatar.attached? %>
-              <%= cl_image_tag User.find(review.user_id).avatar.key, class: "avatar" %>
-            <% else %>
-              <%= image_tag "http://icons.iconarchive.com/icons/gianni-polito/colobrush/256/software-crystal-msn-icon.png", width: 40 %>
-            <% end %>
-        </div>
-          <div class="review-sample">
-            <h5><%= review.user.name %></h3><em><%= review.rating %> <%= review.description %></em>
-          </div>
-        <% end %>
-      </ul>
-
-      <%= simple_form_for [@mother, @review] do |f|  %>
-      <%= f.input :rating, collection: (1..5) %>
-      <%= f.input :description %>
-      <%= f.submit "Submit" %>
-      <% end %>
-  </div>
+  <%= render "reviews-board" %>
 </div>
