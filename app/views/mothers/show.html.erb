@@ -1,12 +1,16 @@
 <div class="container">
   <%= render "caroussel-show" %>
   <div class="d-flex">
-    <div class="mother-info col-8">
-      <div class="d-flex justify-content-between mother-info-top">
-        <div>
-          <h1><%= @mother.name %></h1>
-        </div>
-        <div class="mother-info-owner-avatar">
+    <div class="mother-info col-8 d-flex">
+      <div>
+        <h1><%= @mother.name %></h1>
+        <p>Age: <%= @mother.age %></p>
+        <p>Location: <%= @mother.location %></p>
+        <p>Hobbies: <%= @mother.hobbies %></p>
+        <p>Description: <%= @mother.description %></p>
+        <p> <span id="price"><%= @mother.price %></span> €</p>
+       </div>
+      <div class="mother-info-owner-avatar">
           <% if User.find(@mother.user_id).avatar.attached? %>
             <%= cl_image_tag User.find(@mother.user_id).avatar.key, title: User.find(@mother.user_id).name, class: "avatar" %>
           <% else %>
@@ -31,7 +35,7 @@
           <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
           <div class="d-flex justify-content-between align-items-center">
             <%= f.button :submit, "Book now", class: "btn btn-flat" %>
-            <h3 class="font-weight-bold"><%= "#{@mother.price * 3} €"%></h3>
+            <h3 class="font-weight-bold" id="price-assessment"></h3>
           </div>
           <% end %>
       <div>

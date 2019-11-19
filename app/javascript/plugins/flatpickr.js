@@ -5,5 +5,21 @@ import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
 flatpickr(".datepicker", {
   altInput: true,
   allowInput: true,
-  plugins: [new rangePlugin({ input: "#range_end"})]
+  plugins: [new rangePlugin({ input: "#range_end"})],
+  onClose: [function(){
+    const priceAssessment = document.getElementById('price-assessment')
+    const dates = document.getElementById('range_start').value;
+    let duration = 0
+    if (dates.includes('to')) {
+      const startDate = dates.split(' to ')[0];
+      const endDate = dates.split(' to ')[1];
+      duration = (Date.parse(endDate) - Date.parse(startDate)) / (1000 * 3600 * 24) + 1;
+    } else {
+      const startDate = dates;
+      const endDate = dates;
+      duration = 1;
+    }
+    const price = document.getElementById('price').innerHTML;
+    priceAssessment.innerHTML = `${Number.parseInt(price, 10) * duration} €`;
+  }]
 })
