@@ -6,6 +6,10 @@ class MothersController < ApplicationController
     @mothers = Mother.all
   end
 
+  def new
+    @mother = Mother.new
+  end
+
   def show
     @mother = Mother.find(params[:id])
     @booking = Booking.new
@@ -13,9 +17,6 @@ class MothersController < ApplicationController
     @booking.user = current_user
   end
 
-  def new
-    @mother = Mother.new
-  end
 
   def create
     @mother = Mother.new(mother_params)
