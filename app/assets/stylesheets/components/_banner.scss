@@ -21,11 +21,12 @@
 
 #banner {
   background-size: cover;
-  height: 90vh;
+  height: 86vh;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-position: right;
 
 }
 
@@ -33,6 +34,17 @@
   color: white;
 }
 
+
 body {
   background-color: #ECF1FA;
+=======
+.search_location > label.string.required {
+  opacity: 0;
+  margin:0;
+}
+
+#location-search {
+  justify-content: center;
+  align-items: center;
+
 }
