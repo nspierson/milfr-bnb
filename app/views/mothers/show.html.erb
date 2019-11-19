@@ -66,16 +66,28 @@
       </div>
     </div>
   </div>
-  <div class="reviews-info mother-info col-8">
+
+   <!-- **********************reviews************** -->
+
+  <div class="reviews-info col-8">
       <h2>Reviews:</h2>
       <ul>
         <% @mother.reviews.each do |review| %>
-          <li> <h5> <%= review.user.name %></h3><br><em><%= review.rating %> <%= review.description %></em></li>
+        <div class="reviews-info-owner-avatar">
+            <% if User.find(review.user_id).avatar.attached? %>
+              <%= cl_image_tag User.find(review.user_id).avatar.key, class: "avatar" %>
+            <% else %>
+              <%= image_tag "http://icons.iconarchive.com/icons/gianni-polito/colobrush/256/software-crystal-msn-icon.png", width: 40 %>
+            <% end %>
+        </div>
+          <div class="review-sample">
+            <h5><%= review.user.name %></h3><em><%= review.rating %> <%= review.description %></em>
+          </div>
         <% end %>
       </ul>
 
       <%= simple_form_for [@mother, @review] do |f|  %>
-      <%= f.input :rating %>
+      <%= f.input :rating, collection: (1..5) %>
       <%= f.input :description %>
       <%= f.submit "Submit" %>
       <% end %>
