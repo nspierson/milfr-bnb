@@ -4,7 +4,7 @@
   box-shadow: 5px 5px 5px rgba(0, 0, 0, .2);
   position: sticky;
   top: 20px;
-  height: 300px;
+  height: auto;
   width: 250px;
   border-radius: 5px;
   background-color: white;
@@ -19,7 +19,6 @@
 }
 
 .mother-info {
-  // border: 1px solid rgba(0, 0, 0, .5);
   margin-top: 20px;
   position: relative;
   background-color: white;
