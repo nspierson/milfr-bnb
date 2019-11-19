@@ -48,8 +48,14 @@
       <div class="container">
         <h3 class="text-center">Ajoutez des dates pour voir le prix</h3>
       </div>
+          <%= simple_form_for [@mother, @booking] do |f| %>
+          <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+          <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
+          <%= f.button :submit, "Book now", class: "btn btn-flat" %>
+      <% end %>
+
       <div>
-        <p class="text-center"><%= link_to "Book now", "#", class: "btn btn-flat" %></p>
+        <p class="text-center"></p>
       </div>
       <div>
         <p>Cette belle-mère attire beaucoup l'attention.
