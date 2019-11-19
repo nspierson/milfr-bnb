@@ -10,12 +10,11 @@
       <% @mothers.each do |mother| %>
           <%= link_to mother_path(mother)  do%>
             <div class="card-trip p-3" data-aos="fade-up">
-              <% mother.photos.each do |photo| %>
-                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+                <%= cl_image_tag mother.photos.sample.key, height: 300, width: 400, crop: :fill %>
                 <h2><%= mother.name %></h2>
                 <p><%= mother.age %> yo</p>
                 <p><%= mother.description %></p>
-              <% end %>
+
             </div>
           <% end %>
       <% end %>
