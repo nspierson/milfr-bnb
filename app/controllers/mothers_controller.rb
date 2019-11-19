@@ -17,8 +17,9 @@ class MothersController < ApplicationController
   def create
     @mother = Mother.new(mother_params)
     @mother.user = @user
+    @coucou = coucou
     if @mother.save
-      redirect_to user_mother_path(@mother)
+      redirect_to mother_path(@mother)
     else
       render :new
     end
