@@ -1,16 +1,41 @@
 <div class="container">
-  <%= render "caroussel-show" %>
+  <div id="carouselExampleFade" class="col-12 carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <% @mother.photos.each do |photo| %>
+          <% if photo == @mother.photos.first %>
+            <div class="carousel-item active">
+            <%= cl_image_tag photo.key, class: "d-block w-100"%>
+            </div>
+          <% else %>
+            <div class="carousel-item" data-interval="2000">
+              <%= cl_image_tag photo.key, class: "d-block w-100"%>
+            </div>
+          <% end %>
+        <% end %>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+  </div>
+          <p class="text-center"></p>
   <div class="d-flex">
-    <div class="mother-info col-8 d-flex">
-      <div>
-        <h1><%= @mother.name %></h1>
-        <p>Age: <%= @mother.age %></p>
-        <p>Location: <%= @mother.location %></p>
-        <p>Hobbies: <%= @mother.hobbies %></p>
-        <p>Description: <%= @mother.description %></p>
-        <p> <span id="price"><%= @mother.price %></span> €</p>
-       </div>
-      <div class="mother-info-owner-avatar">
+    <div class="mother-info col-8">
+      <div class="d-flex justify-content-between mother-info-top">
+        <div>
+          <h1><%= @mother.name %></h1>
+
+        </div>
+        <div class="mother-info-owner-avatar">
           <% if User.find(@mother.user_id).avatar.attached? %>
             <%= cl_image_tag User.find(@mother.user_id).avatar.key, title: User.find(@mother.user_id).name, class: "avatar" %>
           <% else %>
@@ -19,26 +44,22 @@
         </div>
       </div>
       <div class="mother-info-info">
-        <div class="d-flex justify-content-around">
+        <div class="d-flex justify-content-between">
           <h6>Age:</h6>
           <p><%= @mother.age %></p>
         </div>
-        <div class="d-flex justify-content-around">
+        <div class="d-flex justify-content-between">
           <h6>Hobbies:</h6>
           <p><%= @mother.hobbies %></p>
         </div>
-        <div class="d-flex justify-content-around">
+        <div class="d-flex justify-content-between">
           <h6>Price per day:</h6>
-          <p><%= @mother.price %></p>
+          <p><span id="price"><%= @mother.price %></span> €</p>
         </div>
         <h6 class="text-center">Location:</h6>
         <p class="text-center"><%= @mother.location %></p>
         <h6 class="text-center">Description:</h6>
         <p class="text-center"><%= @mother.description %></p>
-
-
-
-
       </div>
     </div>
     <div class="booking-card col-3 offset-1">
