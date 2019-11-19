@@ -16,7 +16,7 @@ mother_a = Mother.create({
   age: 38,
   location: "Paris" ,
   price: 100,
-  description: " Sera le cloux de votre soirée",
+  description: " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex voluptatem id, qui consectetur debitis nesciunt vitae, sequi ea at. Laborum animi, earum ipsa nostrum, exercitationem fugiat perferendis. Quaerat, dolore, enim!",
   hobbies: " Cinéma"
 })
 
@@ -30,7 +30,7 @@ mother_b = Mother.new({
   age: 75 ,
   location: "Paris" ,
   price:  10,
-  description:  "plus agréable, tu meurs",
+  description:  "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque culpa odio iusto maiores architecto cupiditate perspiciatis magnam dicta itaque. Reiciendis necessitatibus reprehenderit vel rerum explicabo, corporis cumque assumenda debitis cum.",
   hobbies: 'couture',
 })
 
@@ -44,7 +44,7 @@ mother_c =Mother.new({
   age:  "80",
   location:  "Paris",
   price: 275 ,
-  description: " Vous jugera sur votre look forcément" ,
+  description:  "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque culpa odio iusto maiores architecto cupiditate perspiciatis magnam dicta itaque. Reiciendis necessitatibus reprehenderit vel rerum explicabo, corporis cumque assumenda debitis cum.",
   hobbies: "Couture" ,
 })
 
@@ -59,7 +59,7 @@ mother_d = Mother.new({
   age:  45,
   location: "Paris" ,
   price:  100,
-  description: " Euh ?" ,
+  description:  "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque culpa odio iusto maiores architecto cupiditate perspiciatis magnam dicta itaque. Reiciendis necessitatibus reprehenderit vel rerum explicabo, corporis cumque assumenda debitis cum.",
   hobbies:  "cuisine" ,
 })
 
@@ -67,6 +67,23 @@ file = URI.open('http://foodandsens.com/wp-content/uploads/2018/06/Capture-d%E2%
 mother_d.photos.attach(io: file, filename: 'philippe.jpg', content_type: 'image/jpg')
 mother_d.user = user
 mother_d.save
+
+review_1 = Review.new({
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, doloribus!",
+  rating: 4 ,
+  })
+review_1.user = user
+review_1.mother = mother_a
+review_1.save
+
+review_2 = Review.new({
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, doloribus!",
+  rating: 2 ,
+  })
+
+review_2.user = user
+review_2.mother = mother_a
+review_2.save
 
 puts " Seed Done !!"
 
