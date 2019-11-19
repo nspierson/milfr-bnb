@@ -17,22 +17,13 @@
         <p>Hobbies: <%= @mother.hobbies %></p>
         <p>Description: <%= @mother.description %></p>
         <p>Price: <%= @mother.price %></p>
-<!--         <p>f</p> -->
-<!--         <p>fds</p>
-        <p>fds</p>
-        <p>fds</p>
-        <p>df</p>
-        <p>fds</p>
-        <p>df</p>
-        <p>gdf</p>
-        <p>fds</p>
-        <p>fds</p>
-        <p>fds</p>
-        <p>fds</p>
-        <p>df</p>
-        <p>fds</p>
-        <p>df</p>
-        <p>gdf</p> -->
+        <br>
+        <h2>Reviews:</h2>
+        <ul>
+          <% @mother.reviews.each do |review| %>
+            <li><%= review.rating %> <%= review.description %></li>
+          <% end %>
+        </ul>
       </div>
       <div class="mother-info-owner-avatar">
         <% if user_signed_in? %>
