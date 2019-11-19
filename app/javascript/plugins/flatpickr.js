@@ -20,6 +20,12 @@ flatpickr(".datepicker", {
       duration = 1;
     }
     const price = document.getElementById('price').innerHTML;
-    priceAssessment.innerHTML = `${Number.parseInt(price, 10) * duration} €`;
+    priceAssessment.style.opacity = 0;
+    priceAssessment.style.backgroundColor = "yellow";
+    setTimeout(function(){
+      priceAssessment.innerHTML = `${Number.parseInt(price, 10) * duration} €`;
+      priceAssessment.style.opacity = 1;
+      priceAssessment.style.backgroundColor = "transparent";
+    } ,500)
   }]
 })

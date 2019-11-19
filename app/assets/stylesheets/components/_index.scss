@@ -11,3 +11,8 @@
 @import "grid";
 @import "carousel";
 
+
+#price-assessment {
+  transition: opacity 2s;
+  transition: background-color 1s;
+}

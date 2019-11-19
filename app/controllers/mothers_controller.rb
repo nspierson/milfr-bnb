@@ -30,6 +30,27 @@ class MothersController < ApplicationController
     end
   end
 
+  def edit
+    @mother = Mother.find(params[:id])
+  end
+
+  def update
+    @mother = Mother.find(params[:id])
+    @mother.photos.purge
+    if @mother.update(mother_params)
+      flash[:alert] = "Your mother has been updated."
+      redirect_to mother_path(@mother)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @mother = Mother.find(params[:id])
+    @mother.destroy
+    redirect_to mothers_path
+  end
+
   private
 
   def set_user

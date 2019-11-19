@@ -1,13 +1,16 @@
 <div id="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.thesun.co.uk/wp-content/uploads/2019/07/NINTCHDBPICT000509962875.jpg?w=1240);">
   <div class="banner-content">
     <br>
+    <br>
+    <br>
     <h1>Mothers In Law For Rent</h1>
     <br>
     <h2><small>In short:</small> <strong>MILFR!</strong></h2>
-    <p>Look for available Mothers In Law in your area!</p>
+    <p>Look for bored Mothers In Law in your area!
+      <br>Enroll your Mothers In Law <strike>to get rid</strike> to have your share of fun!</p>
     <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline', id: 'location-search' } do |f| %>
-      <%= f.input :location, input_html: {value: "", placeholder: "Paris, New York, etc."} %>
-      <%= f.submit "Search", class: "btn btn-primary ml-1" %>
+      <%= f.input :location, label: false, input_html: {value: "", placeholder: "Paris, New York, etc."} %>
+      <%= f.submit "Search per area", class: "btn btn-primary ml-1" %>
     <% end %>
   </div>
 </div>

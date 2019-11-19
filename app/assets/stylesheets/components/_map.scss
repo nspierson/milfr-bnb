@@ -12,7 +12,8 @@
 #map {
   height: 100vh;
   position: sticky;
-  top: 0;
+  top: 70px;
+  margin-top: -70px;
 }
 
 /*needed for old page, remove after merge of new frontend module*/
