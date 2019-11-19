@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container py-3">
   <div class="col-4 offset-4">
     <h2>Sign up</h2>
 
@@ -25,8 +25,9 @@
         <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
       </div>
     <% end %>
-
-    <%= render "devise/shared/links" %>
+    <div class="py-3">
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
 </div>
 

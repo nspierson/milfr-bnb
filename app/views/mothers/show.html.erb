@@ -36,7 +36,7 @@
         <p>Location: <%= @mother.location %></p>
         <p>Hobbies: <%= @mother.hobbies %></p>
         <p>Description: <%= @mother.description %></p>
-        <p>Price: <%= @mother.price %> €</p>
+        <p> <span id="price"><%= @mother.price %></span> €</p>
        </div>
       <div class="mother-info-owner-avatar">
           <% if User.find(@mother.user_id).avatar.attached? %>
@@ -55,7 +55,7 @@
           <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
           <div class="d-flex justify-content-between align-items-center">
             <%= f.button :submit, "Book now", class: "btn btn-flat" %>
-            <h3 class="font-weight-bold"><%= "#{@mother.price * 3} €"%></h3>
+            <h3 class="font-weight-bold" id="price-assessment"></h3>
           </div>
           <% end %>
       <div>
