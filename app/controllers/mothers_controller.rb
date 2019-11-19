@@ -8,6 +8,9 @@ class MothersController < ApplicationController
 
   def show
     @mother = Mother.find(params[:id])
+    @booking = Booking.new
+    @booking.mother = @mother
+    @booking.user = current_user
   end
 
   def new
@@ -22,10 +25,6 @@ class MothersController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
-    @mother = Mother.find(params[:id])
   end
 
   private
