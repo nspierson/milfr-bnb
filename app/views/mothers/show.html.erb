@@ -37,13 +37,6 @@
         <p>Hobbies: <%= @mother.hobbies %></p>
         <p>Description: <%= @mother.description %></p>
         <p>Price: <%= @mother.price %></p>
-        <br>
-        <h2>Reviews:</h2>
-        <ul>
-          <% @mother.reviews.each do |review| %>
-            <li><%= review.rating %> <%= review.description %></li>
-          <% end %>
-        </ul>
       </div>
       <div class="mother-info-owner-avatar">
           <% if User.find(@mother.user_id).avatar.attached? %>
@@ -72,5 +65,19 @@
         </p>
       </div>
     </div>
+  </div>
+  <div class="reviews-info mother-info col-8">
+      <h2>Reviews:</h2>
+      <ul>
+        <% @mother.reviews.each do |review| %>
+          <li> <h5> <%= review.user.name %></h3><br><em><%= review.rating %> <%= review.description %></em></li>
+        <% end %>
+      </ul>
+
+      <%= simple_form_for [@mother, @review] do |f|  %>
+      <%= f.input :rating %>
+      <%= f.input :description %>
+      <%= f.submit "Submit" %>
+      <% end %>
   </div>
 </div>

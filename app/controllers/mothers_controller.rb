@@ -16,6 +16,7 @@ class MothersController < ApplicationController
     @booking = Booking.new
     @booking.mother = @mother
     @booking.user = current_user
+    @review = Review.new
   end
 
 
