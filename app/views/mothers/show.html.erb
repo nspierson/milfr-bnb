@@ -37,6 +37,16 @@
         <p>Hobbies: <%= @mother.hobbies %></p>
         <p>Description: <%= @mother.description %></p>
         <p>Price: <%= @mother.price %></p>
+
+
+        <br>
+        <h2>Reviews:</h2>
+        <ul>
+          <% @mother.reviews.each do |review| %>
+            <li><%= review.rating %> <%= review.description %></li>
+          <% end %>
+        </ul>
+
       </div>
       <div class="mother-info-owner-avatar">
           <% if User.find(@mother.user_id).avatar.attached? %>
@@ -50,8 +60,14 @@
       <div class="container">
         <h3 class="text-center">Ajoutez des dates pour voir le prix</h3>
       </div>
+          <%= simple_form_for [@mother, @booking] do |f| %>
+          <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+          <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
+          <%= f.button :submit, "Book now", class: "btn btn-flat" %>
+      <% end %>
+
       <div>
-        <p class="text-center"><%= link_to "Book now", "#", class: "btn btn-flat" %></p>
+        <p class="text-center"></p>
       </div>
       <div>
         <p>Cette belle-mère attire beaucoup l'attention.
