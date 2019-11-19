@@ -1,5 +1,5 @@
 <div class="container">
-  <div id="carouselExampleFade" class="col-8 offset-2 carousel slide" data-ride="carousel">
+  <div id="carouselExampleFade" class="col-12 carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -16,7 +16,7 @@
               <%= cl_image_tag photo.key, class: "d-block w-100"%>
             </div>
           <% end %>
-          <% end %>
+        <% end %>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -56,7 +56,7 @@
       </div>
       <div class="mother-info-owner-avatar">
           <% if User.find(@mother.user_id).avatar.attached? %>
-            <%= cl_image_tag User.find(@mother.user_id).avatar.key, class: "avatar" %>
+            <%= cl_image_tag User.find(@mother.user_id).avatar.key, title: User.find(@mother.user_id).name, class: "avatar" %>
           <% else %>
             <%= image_tag "http://icons.iconarchive.com/icons/gianni-polito/colobrush/256/software-crystal-msn-icon.png", width: 40 %>
           <% end %>
