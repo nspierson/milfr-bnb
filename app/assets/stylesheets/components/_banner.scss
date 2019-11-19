@@ -1,7 +1,7 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  height: 90vh;
 }
 
 .banner h1 {
@@ -34,6 +34,10 @@
   color: white;
 }
 
+
+body {
+  background-color: #ECF1FA;
+=======
 .search_location > label.string.required {
   opacity: 0;
   margin:0;
@@ -42,4 +46,5 @@
 #location-search {
   justify-content: center;
   align-items: center;
+
 }

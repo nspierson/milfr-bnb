@@ -7,6 +7,7 @@
   height: 300px;
   width: 250px;
   border-radius: 5px;
+  background-color: white;
 
   p {
     font-size: 12px;
@@ -18,9 +19,13 @@
 }
 
 .mother-info {
-  border: 1px solid rgba(0, 0, 0, .5);
+  // border: 1px solid rgba(0, 0, 0, .5);
   margin-top: 20px;
   position: relative;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .2);
+  margin-bottom: 50px;
 }
 
 .mother-info-owner-avatar {

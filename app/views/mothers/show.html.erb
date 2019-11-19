@@ -1,10 +1,13 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.thesun.co.uk/wp-content/uploads/2019/07/NINTCHDBPICT000509962875.jpg?w=1240);">
   <div class="container">
     <h1><%= @mother.name %></h1>
     <p><%= @mother.description %></p>
   </div>
 </div>
 <div class="container">
+        <% @mother.photos.each do |photo| %>
+          <p class="text-center"><%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %></p>
+        <% end %>
   <div class="d-flex">
     <div class="mother-info col-8 d-flex">
       <div>
@@ -14,25 +17,31 @@
         <p>Hobbies: <%= @mother.hobbies %></p>
         <p>Description: <%= @mother.description %></p>
         <p>Price: <%= @mother.price %></p>
-        <p>fds</p>
-        <p>fds</p>
-        <p>fds</p>
-        <p>fds</p>
-        <p>df</p>
-        <p>fds</p>
-        <p>df</p>
-        <p>gdf</p>
-        <p>fds</p>
-        <p>fds</p>
+<!--         <p>f</p> -->
+<!--         <p>fds</p>
         <p>fds</p>
         <p>fds</p>
         <p>df</p>
         <p>fds</p>
         <p>df</p>
         <p>gdf</p>
+        <p>fds</p>
+        <p>fds</p>
+        <p>fds</p>
+        <p>fds</p>
+        <p>df</p>
+        <p>fds</p>
+        <p>df</p>
+        <p>gdf</p> -->
       </div>
       <div class="mother-info-owner-avatar">
-      avatar
+        <% if user_signed_in? %>
+          <% if User.find(@mother.user_id).avatar.attached? %>
+            <%= User.find(@mother.user_id).avatar.key %>
+          <% end %>
+          <% else %>
+            <%= image_tag "http://icons.iconarchive.com/icons/gianni-polito/colobrush/256/software-crystal-msn-icon.png", width: 40 %>
+          <% end %>
       </div>
     </div>
     <div class="booking-card col-3 offset-1">
