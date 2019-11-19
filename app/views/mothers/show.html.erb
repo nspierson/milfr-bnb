@@ -29,21 +29,26 @@
   </div>
           <p class="text-center"></p>
   <div class="d-flex">
-    <div class="mother-info col-8 d-flex">
-      <div>
-        <h1><%= @mother.name %></h1>
-        <p>Age: <%= @mother.age %></p>
-        <p>Location: <%= @mother.location %></p>
-        <p>Hobbies: <%= @mother.hobbies %></p>
-        <p>Description: <%= @mother.description %></p>
-        <p>Price: <%= @mother.price %> €</p>
-       </div>
-      <div class="mother-info-owner-avatar">
+    <div class="mother-info col-8">
+      <div class="d-flex justify-content-between mother-info-top">
+        <div>
+          <h1><%= @mother.name %></h1>
+
+        </div>
+        <div class="mother-info-owner-avatar">
           <% if User.find(@mother.user_id).avatar.attached? %>
             <%= cl_image_tag User.find(@mother.user_id).avatar.key, title: User.find(@mother.user_id).name, class: "avatar" %>
           <% else %>
             <%= image_tag "http://icons.iconarchive.com/icons/gianni-polito/colobrush/256/software-crystal-msn-icon.png", width: 40 %>
           <% end %>
+        </div>
+      </div>
+      <div class="mother-info-info">
+        <p>Age: <%= @mother.age %></p>
+        <p>Location: <%= @mother.location %></p>
+        <p>Hobbies: <%= @mother.hobbies %></p>
+        <p>Description: <%= @mother.description %></p>
+        <p>Price per day: <%= @mother.price %> €</p>
       </div>
     </div>
     <div class="booking-card col-3 offset-1">
