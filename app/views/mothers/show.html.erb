@@ -19,11 +19,26 @@
         </div>
       </div>
       <div class="mother-info-info">
-        <p>Age: <%= @mother.age %></p>
-        <p>Location: <%= @mother.location %></p>
-        <p>Hobbies: <%= @mother.hobbies %></p>
-        <p>Description: <%= @mother.description %></p>
-        <p>Price per day: <%= @mother.price %> €</p>
+        <div class="d-flex justify-content-around">
+          <h6>Age:</h6>
+          <p><%= @mother.age %></p>
+        </div>
+        <div class="d-flex justify-content-around">
+          <h6>Hobbies:</h6>
+          <p><%= @mother.hobbies %></p>
+        </div>
+        <div class="d-flex justify-content-around">
+          <h6>Price per day:</h6>
+          <p><%= @mother.price %></p>
+        </div>
+        <h6 class="text-center">Location:</h6>
+        <p class="text-center"><%= @mother.location %></p>
+        <h6 class="text-center">Description:</h6>
+        <p class="text-center"><%= @mother.description %></p>
+
+
+
+
       </div>
     </div>
     <div class="booking-card col-3 offset-1">
