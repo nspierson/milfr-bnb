@@ -1,7 +1,7 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  height: 90vh;
 }
 
 .banner h1 {
@@ -31,4 +31,8 @@
 
 .banner-content {
   color: white;
+}
+
+body {
+  background-color: #ECF1FA;
 }
