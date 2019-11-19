@@ -3,6 +3,7 @@ puts " Seed begin........."
 
 Mother.destroy_all
 User.destroy_all
+Review.destroy_all
 
 user= User.create({
   email: "toto@lewagon.org",
