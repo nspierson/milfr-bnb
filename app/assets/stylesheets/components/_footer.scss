@@ -1,5 +1,5 @@
 .footer {
-  background: rgb( 80, 80, 80);
+  background: $light-blue;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -11,10 +11,11 @@
 }
 .footer-links {
   display: flex;
+  margin: auto;
   align-items: center;
 }
 .footer-links a {
-  color: white;
+  color: $strong-blue;
   opacity: 0.30;
   text-decoration: none;
   font-size: 24px;
