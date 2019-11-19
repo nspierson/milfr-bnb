@@ -1,20 +1,22 @@
 .footer {
-  background: rgb( 80, 80, 80);
+  background: $light-blue;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 50px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.6);
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
   position: sticky;
   bottom: 0px;
 }
 .footer-links {
   display: flex;
+  margin: auto;
   align-items: center;
 }
 .footer-links a {
-  color: white;
+  color: $strong-blue;
   opacity: 0.30;
   text-decoration: none;
   font-size: 24px;

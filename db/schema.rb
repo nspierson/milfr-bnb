@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_18_141513) do
+ActiveRecord::Schema.define(version: 2019_11_19_105432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 2019_11_18_141513) do
     t.bigint "mother_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "starts_at"
+    t.string "ends_at"
     t.index ["mother_id"], name: "index_bookings_on_mother_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -56,6 +58,17 @@ ActiveRecord::Schema.define(version: 2019_11_18_141513) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_mothers_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "description"
+    t.integer "rating"
+    t.bigint "user_id"
+    t.bigint "mother_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mother_id"], name: "index_reviews_on_mother_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -75,4 +88,6 @@ ActiveRecord::Schema.define(version: 2019_11_18_141513) do
   add_foreign_key "bookings", "mothers"
   add_foreign_key "bookings", "users"
   add_foreign_key "mothers", "users"
+  add_foreign_key "reviews", "mothers"
+  add_foreign_key "reviews", "users"
 end

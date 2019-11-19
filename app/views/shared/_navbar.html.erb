@@ -1,25 +1,18 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "old-woman.svg"%>
-
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto align-items-center">
       <li class="nav-item">
-        <%= link_to "List All Mothers-in-law", mothers_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Categories", "http://www.perdu.com/", class: "nav-link" %>
+        <%= link_to "Explore", mothers_path, class: "nav-link mx-6" %></li>
+        <%= link_to "Categories", mothers_path, class: "nav-link mx-6" %></li>
       </li>
       <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "Add A Mother", new_user_mother_path(current_user.id), class: "nav-link" %>
-        </li>
         <li class="nav-item dropdown">
           <% if current_user.avatar.attached? %>
             <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -27,7 +20,8 @@
             <%= image_tag "http://icons.iconarchive.com/icons/gianni-polito/colobrush/256/software-crystal-msn-icon.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to " Your Beloved Mother-in-law", "http://www.perdu.com/", class: "dropdown-item" %>
+            <%= link_to "Your profile", "#", class: "dropdown-item" %>
+            <%= link_to "Add your Mother", new_user_mother_path(current_user.id), class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure to log out?"}, class: "dropdown-item" %>
           </div>
         </li>
