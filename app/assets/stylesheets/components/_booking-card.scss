@@ -24,19 +24,20 @@
   margin-top: 20px;
   background-color: white;
   border-radius: 5px;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, .2);
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, .2);
   margin-bottom: 50px;
   padding: 0px;
   border-radius: 5px;
 }
 
 .mother-info-top {
-  background-color: rgba(236, 241, 250, 0.2);
+  background-color: rgba(236, 241, 250, 0.5);
   width: 100%;
   border-radius: 5px;
   align-items: center;
+  padding: 10px;
 }
 
-.mother-info-owner-avatar {
-
+.mother-info-info {
+  padding: 10px;
 }
