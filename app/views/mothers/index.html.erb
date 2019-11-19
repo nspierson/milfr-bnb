@@ -2,20 +2,23 @@
 
 
 
+
 <div class="container">
   <div class="row">
-    <div class="col-8">
       <h1> Our selection of Mothers </h1>
+    <div class="col-8 grid px-3" >
       <% @mothers.each do |mother| %>
-          <div class="card" data-aos="fade-up">
-          <%= mother.name %>
-          <%= mother.age %>
-          <%= link_to 'go' ,mother_path(mother) %>
-          <% mother.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+          <%= link_to mother_path(mother)  do%>
+            <div class="card-trip p-3" data-aos="fade-up">
+              <% mother.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+                <h2><%= mother.name %></h2>
+                <p><%= mother.age %> yo</p>
+                <p><%= mother.description %></p>
+              <% end %>
+            </div>
           <% end %>
-          </div>
-        <% end %>
+      <% end %>
     </div>
 
     <div class="col-4">

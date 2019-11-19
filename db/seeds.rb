@@ -1,8 +1,8 @@
 
 puts " Seed begin........."
 
-User.destroy_all
 Mother.destroy_all
+User.destroy_all
 
 user= User.create({
   email: "toto@lewagon.org",
