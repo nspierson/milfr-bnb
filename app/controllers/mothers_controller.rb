@@ -7,13 +7,17 @@ class MothersController < ApplicationController
     @mothers = Mother.all
   end
 
-  def show
-    @mother = Mother.find(params[:id])
-  end
-
   def new
     @mother = Mother.new
   end
+
+  def show
+    @mother = Mother.find(params[:id])
+    @booking = Booking.new
+    @booking.mother = @mother
+    @booking.user = current_user
+  end
+
 
   def create
     @mother = Mother.new(mother_params)
@@ -25,9 +29,6 @@ class MothersController < ApplicationController
     end
   end
 
-  def show
-    @mother = Mother.find(params[:id])
-  end
   private
 
   def set_user

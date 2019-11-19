@@ -1,13 +1,33 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.thesun.co.uk/wp-content/uploads/2019/07/NINTCHDBPICT000509962875.jpg?w=1240);">
-  <div class="container">
-    <h1><%= @mother.name %></h1>
-    <p><%= @mother.description %></p>
-  </div>
-</div>
 <div class="container">
+  <div id="carouselExampleFade" class="col-8 offset-2 carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
         <% @mother.photos.each do |photo| %>
-          <p class="text-center"><%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %></p>
-        <% end %>
+          <% if photo == @mother.photos.first %>
+            <div class="carousel-item active">
+            <%= cl_image_tag photo.key, class: "d-block w-100"%>
+            </div>
+          <% else %>
+            <div class="carousel-item" data-interval="2000">
+              <%= cl_image_tag photo.key, class: "d-block w-100"%>
+            </div>
+          <% end %>
+          <% end %>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+  </div>
+          <p class="text-center"></p>
   <div class="d-flex">
     <div class="mother-info col-8 d-flex">
       <div>
@@ -35,10 +55,8 @@
         <p>gdf</p> -->
       </div>
       <div class="mother-info-owner-avatar">
-        <% if user_signed_in? %>
           <% if User.find(@mother.user_id).avatar.attached? %>
-            <%= User.find(@mother.user_id).avatar.key %>
-          <% end %>
+            <%= cl_image_tag User.find(@mother.user_id).avatar.key, class: "avatar" %>
           <% else %>
             <%= image_tag "http://icons.iconarchive.com/icons/gianni-polito/colobrush/256/software-crystal-msn-icon.png", width: 40 %>
           <% end %>
@@ -48,8 +66,14 @@
       <div class="container">
         <h3 class="text-center">Ajoutez des dates pour voir le prix</h3>
       </div>
+          <%= simple_form_for [@mother, @booking] do |f| %>
+          <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+          <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
+          <%= f.button :submit, "Book now", class: "btn btn-flat" %>
+      <% end %>
+
       <div>
-        <p class="text-center"><%= link_to "Book now", "#", class: "btn btn-flat" %></p>
+        <p class="text-center"></p>
       </div>
       <div>
         <p>Cette belle-mère attire beaucoup l'attention.
