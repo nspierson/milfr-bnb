@@ -17,7 +17,6 @@ class MothersController < ApplicationController
   def create
     @mother = Mother.new(mother_params)
     @mother.user = @user
-    @coucou = coucou
     if @mother.save
       redirect_to mother_path(@mother)
     else
