@@ -1,9 +1,11 @@
 class ReviewsController < ApplicationController
-
-
-  def create
+ def create
     @mother = Mother.find(params[:mother_id])
-    @review = Review.new(params[:review])
+    @review = Review.new(params_review)
+    @review.mother = @mother
+    @review.user = current_user
+    @review.save
+    redirect_to mother_path(@mother)
   end
 
   private
