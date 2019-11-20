@@ -58,7 +58,7 @@ mother_c.save
 mother_a = Mother.create({
   name: "Nathou",
   age: 38,
-  location: "Paris" ,
+  location: " 14 rue Crespin du Gast, 75011 Paris" ,
   price: 400,
   description: " Jeune belle-mère, encore novice, néanmoins son métier fait qu'elle s'adaptera à toutes les situations. Souriante, agréable et avec beaucoup de discussion, elle vous fera oublier votre ancienne belle-mère",
   hobbies: " Cinéma"
