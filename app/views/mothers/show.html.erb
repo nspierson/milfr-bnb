@@ -1,12 +1,21 @@
 <div class="container">
   <%= render "caroussel-show" %>
   <div class="d-flex">
-    <div class="mother-info col-8">
+    <div class="col-8">
+    <div class="mother-info">
       <div class="d-flex justify-content-between mother-info-top">
         <div>
           <h1><%= @mother.name %></h1>
         </div>
         <div class="mother-info-owner-avatar">
+          <% if @mother.user == current_user %>
+            <%= link_to edit_mother_path(@mother), class:"mr-1" ,style:"font-size:24px" do %>
+              <i class="far fa-edit"></i>
+            <% end %>
+            <%= link_to "#", data: { confirm: "Are you sure to delete #{@mother.name}?" }, method: :get, class:"mr-1", style:"font-size:24px" do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          <% end %>
           <% if User.find(@mother.user_id).avatar.attached? %>
             <%= cl_image_tag User.find(@mother.user_id).avatar.key, title: User.find(@mother.user_id).name, class: "avatar" %>
           <% else %>
@@ -33,6 +42,8 @@
         <p class="text-center"><%= @mother.description %></p>
       </div>
     </div>
+    <%= render "reviews-board" %>
+    </div>
     <div class="booking-card col-3 offset-1">
       <div class="container">
         <h3 class="text-center">Ajoutez des dates pour voir le prix</h3>
@@ -41,7 +52,7 @@
           <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_start"} %>
           <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
           <div class="d-flex justify-content-between align-items-center">
-            <%= f.button :submit, "Book now", class: "btn btn-flat" %>
+            <%= f.button :submit, "Book now", data: { confirm: "Do you validate the booking? You will find the receipt and the money will be directly withdrawn from your pocket."}, class: "btn btn-flat" %>
             <h3 class="font-weight-bold" id="price-assessment"></h3>
           </div>
           <% end %>
@@ -50,10 +61,9 @@
       </div>
       <div>
         <p>Cette belle-mère attire beaucoup l'attention.
-           L'annonce a été consultée plus de 500 fois au cours de la dernière semaine.
+           L'annonce a été consultée plus de <strong><%= rand(10..50) * 10 %></strong> fois au cours de la dernière semaine.
         </p>
       </div>
     </div>
   </div>
-  <%= render "reviews-board" %>
 </div>
