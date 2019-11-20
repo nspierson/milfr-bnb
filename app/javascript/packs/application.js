@@ -17,6 +17,6 @@ fin.defaultValue = "Booked!"
 })
 
 }
-modal();
 initMapbox();
 initAutocomplete({});
+modal();
