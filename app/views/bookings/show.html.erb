@@ -6,11 +6,31 @@
     <br>
     <br>
     <br>
-    <p>You, <strong><%= @booking.user.name %></strong>,</p>
-    <p>Rented the mother <strong><%= @booking.mother.name %></strong></p>
-    <p>Starting at: <strong><%= @booking.starts_at %></strong></p>
-    <p>Ending at: <strong><%= @booking.ends_at %></strong></p>
-    <p>For a total price of <strong><%= @booking.price %> €</strong></p>
-    <p>Happy Mother-sitting!</p>
+
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="CheckOutModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Congratulation !</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>You, <strong><%= @booking.user.name %></strong>,</p>
+        <p>Rented the mother <strong><%= @booking.mother.name %></strong></p>
+        <p>Starting at: <strong><%= @booking.starts_at %></strong></p>
+        <p>Ending at: <strong><%= @booking.ends_at %></strong></p>
+        <p>For a total price of <strong><%= @booking.price %> €</strong></p>
+        <p>Happy Mother-sitting!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
   </div>
 </div>
