@@ -4,7 +4,14 @@ class MothersController < ApplicationController
   before_action :set_user, only: [:new, :create]
 
   def index
-    @mothers = Mother.all
+    @mothers = Mother.geocoded
+    @markers = @mothers.map do |mother|
+      {
+        lat: mother.latitude,
+        lng: mother.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { mother: mother }),
+        image_url: helpers.asset_url('old-woman.svg')
+      }
     @search = params["search"]
     if @search.present?
       @location = @search["location"]
