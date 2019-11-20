@@ -8,8 +8,8 @@
     <h2><small>In short:</small> <strong>MILFR!</strong></h2>
     <p>Look for bored Mothers In Law in your area!
       <br>Enroll your Mothers In Law <strike>to get rid</strike> to have your share of fun!</p>
-    <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline', id: 'location-search' } do |f| %>
-      <%= f.input :location, label: false, input_html: {value: "", placeholder: "Paris, New York, etc."} %>
+    <%= simple_form_for :search, url: mothers_path, method: "GET", html: { class: 'form-inline', id: 'location-search' } do |f| %>
+      <%= f.input :location, label: false, input_html: {value: "", placeholder: "City, Address, etc."} %>
       <%= f.submit "Search per area", class: "btn btn-primary ml-1" %>
     <% end %>
   </div>
