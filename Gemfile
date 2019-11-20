@@ -16,7 +16,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'cloudinary', '~> 1.12.0'
 gem 'devise'
-
+gem 'geocoder'
 gem 'active_storage_validations'
 
 group :development do
