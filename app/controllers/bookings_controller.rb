@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.price = duration.to_i * @mother.price
     @booking.user = current_user
     @booking.save
-    redirect_to booking_path(@booking)
+    # redirect_to booking_path(@booking)
   end
 
   def booking_params

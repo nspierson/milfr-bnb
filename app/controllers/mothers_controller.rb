@@ -5,6 +5,11 @@ class MothersController < ApplicationController
 
   def index
     @mothers = Mother.all
+    @search = params["search"]
+    if @search.present?
+      @location = @search["location"]
+      @mothers = Mother.where("location ILIKE ?", @location)
+    end
   end
 
   def new
