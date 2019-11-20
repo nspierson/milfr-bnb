@@ -12,6 +12,10 @@ class MothersController < ApplicationController
         infoWindow: render_to_string(partial: "infowindow", locals: { mother: mother }),
         image_url: helpers.asset_url('old-woman.svg')
       }
+    @search = params["search"]
+    if @search.present?
+      @location = @search["location"]
+      @mothers = Mother.where("location ILIKE ?", @location)
     end
   end
 
