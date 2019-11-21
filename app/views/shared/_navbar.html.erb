@@ -24,7 +24,8 @@
             <%= link_to "Ajoutez vos MILFR", new_user_mother_path(current_user.id), class: "dropdown-item" %>
             <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure to log out?"}, class: "dropdown-item" %>
           </div>
-        </lis      <% else %>
+        </li>
+          <% else %>
         <li class="nav-item">
           <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
         </li>
