@@ -2,48 +2,47 @@
 <div class="container">
   <div class="d-flex">
     <div class="col-8">
-    <div class="mother-info">
-      <div class="d-flex justify-content-between mother-info-top">
-        <div>
-          <h1><%= @mother.name %></h1>
+     <!--  JE TRAVAILLE A PARTIR D ICI SUR LA DESCRIPTION -->
+      <div class="mother-info">
+    <!--     C EST LE HEADER -->
+        <div class="header d-flex justify-content-between">
+          <div class="mother-name">
+            <ul class="list-inline">
+              <li class="list-inline-item"><p><%= @mother.name %></p></li>
+              <li class="list-inline-item">
+                <%= link_to(user_path(@mother.user)) do %>
+                  <%=cl_image_tag User.find(@mother.user_id).avatar.key, title: User.find(@mother.user_id).name, class: "avatar"%>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+          <div class="mother-price">
+            <p><%= @mother.price %> </p>
+          </div>
         </div>
-        <div class="mother-info-owner-avatar">
-          <% if @mother.user == current_user %>
-            <%= link_to edit_mother_path(@mother), class:"mr-1" ,style:"font-size:24px" do %>
-              <i class="far fa-edit"></i>
-            <% end %>
-            <%= link_to "#", data: { confirm: "Are you sure to delete #{@mother.name}?" }, method: :get, class:"mr-1", style:"font-size:24px" do %>
-              <i class="far fa-trash-alt"></i>
-            <% end %>
-          <% end %>
-          <% if User.find(@mother.user_id).avatar.attached? %>
-            <%= link_to(user_path(@mother.user)) do %>
-            <%=cl_image_tag User.find(@mother.user_id).avatar.key, title: User.find(@mother.user_id).name, class: "avatar"%>
-            <% end %>
-          <% else %>
-            <%= image_tag "http://icons.iconarchive.com/icons/gianni-polito/colobrush/256/software-crystal-msn-icon.png", width: 40 %>
-          <% end %>
+        <!--   FIN DU HEADER -->
+        <div class="mother-content d-flex justify-content-between">
+          <!--  PARTIE DE GAUCHE -->
+          <div class="mother-stats">
+            <ul class="mother-icons list-inline" style="width: 200px;">
+              <li class="list-inline-item">a</li>
+              <p><%= @mother.location %></p>
+              <li class="list-inline-item">b</li>
+              <p><%= @mother.age%> </p>
+              <li class="list-inline-item">c</li>
+              <p></p>
+              <li class="list-inline-item">d</li>
+              <p></p>
+            </ul>
+          </div>
+          <!--   FIN DEPARTIE DE GAUCHE -->
+          <div class="mother-text">
+            <p><%= @mother.description %></p>
+          </div>
         </div>
       </div>
-      <div class="mother-info-info">
-        <div class="d-flex justify-content-between">
-          <h6>Age:</h6>
-          <p><%= @mother.age %></p>
-        </div>
-        <div class="d-flex justify-content-between">
-          <h6>Hobbies:</h6>
-          <p><%= @mother.hobbies %></p>
-        </div>
-        <div class="d-flex justify-content-between">
-          <h6>Price per day:</h6>
-          <p><span id="price"><%= @mother.price %></span> €</p>
-        </div>
-        <h6 class="text-center">Location:</h6>
-        <p class="text-center"><%= @mother.location %></p>
-        <h6 class="text-center">Description:</h6>
-        <p class="text-center"><%= @mother.description %></p>
-      </div>
-    </div>
+
+    <!--      J'ARRETTE ICI --------- -->
     <%= render "reviews-board" %>
     </div>
     <% if current_user %>
