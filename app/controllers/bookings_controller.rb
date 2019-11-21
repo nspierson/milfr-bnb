@@ -23,6 +23,41 @@ class BookingsController < ApplicationController
     # redirect_to booking_path(@booking)
   end
 
+  def mark_as_accepted
+    @booking = Booking.find(params[:booking_id])
+    @user = @booking.mother.user
+    @mothers = Mother.where(user: @user)
+    @bookings = Booking.where(user: @user)
+    @requests = Booking.where(mother: @mothers)
+    @booking.decision = true
+    @booking.accept = true
+    @booking.save
+    respond_to do |format|
+      format.html { render 'pages/dashboard' }
+      format.js
+    end
+  end
+
+  def mark_as_declined
+    @booking = Booking.find(params[:booking_id])
+    @user = @booking.mother.user
+    @mothers = Mother.where(user: @user)
+    @bookings = Booking.where(user: @user)
+    @requests = Booking.where(mother: @mothers)
+    @booking.decision = true
+    @booking.accept = false
+    @booking.save
+    respond_to do |format|
+      format.html { render 'pages/dashboard' }
+      format.js
+    end
+  end
+
+  private
+
+  def change_status
+  end
+
   def booking_params
     params.require(:booking).permit(:ends_at, :starts_at)
   end
