@@ -1,4 +1,36 @@
-<%= @user.name %>
-<% @user.reviews.each do |com| %>
-  <%= com.description %>
-  <% end %>
+<div class="container">
+  <div class="d-flex">
+
+    <div class="col-4 user-info-card">
+      <div class="container">
+        <div class="user-info-card-avatar">
+          <%= cl_image_tag @user.avatar.key, class: "avatar-big" %>
+        </div>
+        <div class="user-info-card-middle">
+          <p><i class="fas fa-comment-dots"></i> <%= @user.reviews.length %> Commentaire(s)</p>
+          <p><i class="fas fa-check" style="color:green"></i>            Utilisateur verifié</p>
+        </div>
+        <div>
+          <p><i class="fas fa-female"></i> <%= @user.mothers.length %> MILFR actuellement</p>
+          <p><i class="fas fa-home"></i>Paris</p>
+        </div>
+      </div>
+    </div>
+    <div class="user-right-column col-6 offset-1">
+      <div class="user-right-column-top">
+        <p>Membre depuis le <%= @user.created_at.strftime("%d-%m-%Y") %></p>
+        <p><% @user.reviews.each do |com| %></p>
+          <%= com.description %>
+        <% end %>
+      </div>
+
+      <div>
+        <% @user.mothers.each do |mother| %>
+        <%= mother.name %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-6"></div>
+</div>
+
