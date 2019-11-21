@@ -20,14 +20,46 @@
   }
 }
 
+// CARTE DE DESCRIPTION DE LA MOTHER
+
 .mother-info {
   margin-top: 20px;
   background-color: white;
   border-radius: 5px;
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, .2);
   margin-bottom: 10px;
-  padding: 15px;
+  padding: 0px;
+  padding-bottom: 0px;
   border-radius: 5px;
 }
 
+.header{
+  border-bottom: 1px solid lightgray;
+  background-color: $light-blue;
+}
 
+.mother-stats{
+  border-right: 1px solid lightgray;
+  margin: 10px;
+}
+.mother-price i, .mother-price h5 {
+  color: $strong-red;
+  font-style: bolder;
+}
+.mother-content{
+  padding: 9px;
+}
+
+.mother-icons{
+  width: 220px;
+  font-size: 12px;
+  i{
+    color: $strong-red;
+  }
+}
+.mother-text{
+  font-style: italic;
+  text-align: center;
+  font-size : 14px;
+  padding: 10px;
+}
