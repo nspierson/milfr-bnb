@@ -16,7 +16,10 @@ class MothersController < ApplicationController
     @search = params["search"]
     if @search.present?
       @location = @search["location"]
-      @mothers = Mother.where("location ILIKE ?", "%#{@location}%")
+      @mothers = Mother.near(@location, 100)
+      # raise
+      # @mothers = Mother.where("location ILIKE ?", "%#{@location}%")
+      # raise
     end
   end
 
