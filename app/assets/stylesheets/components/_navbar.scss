@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: $light-blue ;
+  background: $medium-blue;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
   opacity: 1;
   position: sticky;
@@ -8,10 +8,16 @@
   z-index:99;
 }
 
+.navbar-lewagon a:hover{
+color: #DC4250;
+}
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 44px;
+  border-radius : 50%;
+  background-color: white ;
+  border: solid 1px $strong-red;
 }
