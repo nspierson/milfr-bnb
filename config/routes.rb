@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard', as: :dashboard
-  get 'pages/:id', to: 'pages#show', as: :user
-  
+  get 'users/:id', to: 'pages#show', as: :user
+
   resources :bookings, only: :show
 
   resources :mothers, only: [:show, :index] do

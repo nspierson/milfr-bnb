@@ -1,4 +1,4 @@
-<div class="container" style="height: 87vh">
+<div class="container">
   <div class="d-flex">
 
     <div class="col-4 user-info-card">
@@ -7,12 +7,12 @@
           <%= cl_image_tag @user.avatar.key, class: "avatar-big" %>
         </div>
         <div class="user-info-card-middle">
-          <p><i class="fas fa-comment-dots"></i> <%= @user.reviews.length %> Commentaire(s)</p>
+          <p><i class="fas fa-comment-dots" style="color:#B71D12"></i> <%= @user.reviews.length %> Commentaire(s)</p>
           <p><i class="fas fa-check" style="color:green"></i>            Utilisateur verifié</p>
         </div>
         <div>
-          <p><i class="fas fa-female"></i> <%= @user.mothers.length %> MILFR actuellement</p>
-          <p><i class="fas fa-home"></i>Paris</p>
+          <p><i class="fas fa-female" style="color:#B71D12"></i> <%= @user.mothers.length %> MILFRs actuellement</p>
+          <p><i class="fas fa-home" style="color:#B71D12"></i>Paris</p>
         </div>
       </div>
     </div>
@@ -20,25 +20,53 @@
       <div class="user-right-column-top">
         <h1>Bonjour, je suis <%= @user.name %>!</h1>
         <p>Membre depuis le <%= @user.created_at.strftime("%d-%m-%Y") %></p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, placeat voluptate iusto tempore, fugiat officiis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, mollitia.</p>
+        <p><i class="fas fa-quote-left"></i></p>
+        <p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, placeat voluptate iusto tempore, fugiat officiis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, mollitia.</em></p>
+        <p class="text-sm-right"><i class="fas fa-quote-right"></i></p>
       </div>
         <h5>MILFRs de <%= @user.name %></h5>
-      <div class="d-flex justify-content-around">
-        <% @user.mothers.sample(2).each do |mother| %>
+      <div class="d-flex justify-content-around flex-wrap cards">
+        <% @user.mothers.first(2).each do |mother| %>
           <div class="user-right-column-mother-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path mother.photos.sample.key, crop: :thumb, gravity: :face, width: 200, height: 200 %>')">
             <%= mother.name %>
           </div>
         <% end %>
+          <div class="collapse" id="collapseExample">
+            <div class="d-flex justify-content-around flex-wrap cards">
+              <% @user.mothers.last(5).each do |mother| %>
+                <div class="user-right-column-mother-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path mother.photos.sample.key, crop: :thumb, gravity: :face, width: 200, height: 200 %>')">
+                  <%= mother.name %>
+                </div>
+              <% end %>
+            </div>
+          </div>
       </div>
-        <p style="color: blue">Show more !(<%= @user.mothers.length - 2 %>)</p>
-
-      <div>
-        <% @user.reviews.each do |com| %>
-          <%= com.description %>
-        <% end %>
+      <div class="user-right-column-btn">
+        <p class="text-center">
+          <a class="btn-form" id="btn-form-profile" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            Show more !
+          </a>
+        </p>
       </div>
+      <% @user.reviews.each do |com| %>
+        <div class="user-right-column-reviews">
+          <div class="d-flex justify-content-between profile-reviews-top">
+            <h6><%= @user.name %> a loué <%= com.mother.name %>:</h6>
+            <%= cl_image_tag com.mother.photos.first.key, class: "avatar" %>
+          </div>
+          <div class="profile-reviews-bottom">
+            <p><%= com.description %></p>
+            <% com.rating.times do %>
+              <i class="fas fa-star mt-n3" style="color:#B71D12"></i>
+            <% end %>
+            <% (5 - com.rating).times do %>
+              <i class="far fa-star" style="color:#B71D12"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
-  <div class="col-6"></div>
 </div>
+
 

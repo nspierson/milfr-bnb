@@ -18,7 +18,10 @@
             <h5 class="mb-n1"><%= review.user.name %></h5>
             <span style="color: blue">
               <% review.rating.times do %>
-                <i class="fas fa-star"></i>
+                <i class="fas fa-star" style="color:#B71D12"></i>
+              <% end %>
+              <% (5 - review.rating).times do %>
+                <i class="far fa-star" style="color:#B71D12"></i>
               <% end %>
             </span> - <em><%= review.description %></em>
           </div>

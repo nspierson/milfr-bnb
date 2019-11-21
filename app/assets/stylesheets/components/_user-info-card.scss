@@ -3,6 +3,7 @@
   width: 350px;
   height: 520px;
   margin-top: 20px;
+  position: sticky;
 }
 
 .user-info-card-avatar {
@@ -22,6 +23,10 @@
 .user-right-column-top {
   margin-top: 25px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  p {
+    font-size: 13px;
+  }
 }
 
 .user-right-column-mother-card {
@@ -29,11 +34,78 @@
   height: 200px;
   color: white;
   border-radius: 5px;
-  margin-top: 25px;
+  margin-top: 20px;
   padding-top: 170px;
   padding-left: 10px;
 }
 
+.user-right-column-btn {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px;
+}
+
+.profile-reviews-top {
+  background: $medium-blue;
+  padding: 10px;
+  align-items: center;
+}
+
+.profile-reviews-bottom {
+  padding: 15px;
+}
+
+.user-right-column-reviews {
+  border-radius: 5px;
+  margin-top: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  p {
+    font-size: 12px;
+  }
+}
+
+
 h5 {
   margin-top: 10px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
