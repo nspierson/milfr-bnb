@@ -20,9 +20,10 @@
             <%= image_tag "http://icons.iconarchive.com/icons/gianni-polito/colobrush/256/software-crystal-msn-icon.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Edit your profile", edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Add your Mother", new_user_mother_path(current_user.id), class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure to log out?"}, class: "dropdown-item" %>
+            <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+            <%= link_to "Ton profil", edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to "Ajouter une MILFR", new_user_mother_path(current_user.id), class: "dropdown-item" %>
+            <%= link_to "Déconnection", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure to log out?"}, class: "dropdown-item" %>
           </div>
         </li>
       <% else %>
