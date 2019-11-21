@@ -1,1 +1,17 @@
 // Specific CSS for your home-page
+.title {
+  font-family: $title-font;
+  text-shadow: 1px 1px 2px white;
+}
+
+#sub-header{
+  font-family: $headers-font;
+}
+
+#banner{
+background-image: linear-gradient(to left top,rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url(https://www.thesun.co.uk/wp-content/uploads/2019/07/NINTCHDBPICT000509962875.jpg?w=1240);
+}
+
+#home-search{
+  opacity: 0.6;
+}

@@ -1,17 +1,18 @@
-<div id="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.thesun.co.uk/wp-content/uploads/2019/07/NINTCHDBPICT000509962875.jpg?w=1240);">
+<div id="banner">
   <div class="banner-content">
     <br>
     <br>
+    <h1><strong class="title">MILFR!</strong></h1>
     <br>
-    <h1>Mothers In Law For Rent</h1>
-    <br>
-    <h2><small>In short:</small> <strong>MILFR!</strong></h2>
-    <p>Look for bored Mothers In Law in your area!
-      <br>Enroll your Mothers In Law <strike>to get rid</strike> to have your share of fun!</p>
-    <%= simple_form_for :search, url: mothers_path, method: "GET", html: { class: 'form-inline', id: 'location-search' } do |f| %>
-      <%= f.input :location, label: false, input_html: {value: "", placeholder: "City, Address, etc."} %>
-      <%= f.submit "Search per area", class: "btn btn-primary ml-1" %>
-    <% end %>
+    <h5>Mothers In Law For Rent</h5>
+    <h5 id="sub-header">Profitez enfin de vos repas de famille !</h5>
+    <br><br>
+    <div id="home-search">
+      <%= simple_form_for :search, url: mothers_path, method: "GET", html: { class: 'form-inline', id: 'location-search' } do |f| %>
+        <%= f.input :location, label: false, input_html: {value: "", placeholder: "City, Address..."} %>
+        <%= f.submit "Find", class: "btn form" %>
+      <% end %>
+    </div>
   </div>
 </div>
 

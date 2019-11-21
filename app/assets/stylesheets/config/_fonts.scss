@@ -1,9 +1,11 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Kalam:400,700|Noto+Sans:400,400i,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Kalam:700|Noto+Sans:400,700|Playfair+Display:400,700&display=swap');
+
+
 // Define fonts for body and headers
 $body-font: "Noto Sans", "Helvetica", "sans-serif";
-$headers-font: "Kalam", "Helvetica", "cursive";
-
+$headers-font: 'Playfair Display',"Helvetica", "serif";
+$title-font: 'Kalam', "Helvetica", "cursive";
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
