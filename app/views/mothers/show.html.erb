@@ -5,39 +5,36 @@
      <!--  JE TRAVAILLE A PARTIR D ICI SUR LA DESCRIPTION -->
       <div class="mother-info">
     <!--     C EST LE HEADER -->
-        <div class="header d-flex justify-content-between">
+        <div class="header d-flex justify-content-around align-items-center">
           <div class="mother-name">
             <ul class="list-inline">
-              <li class="list-inline-item"><p><%= @mother.name %></p></li>
-              <li class="list-inline-item">
-                <%= link_to(user_path(@mother.user)) do %>
-                  <%=cl_image_tag User.find(@mother.user_id).avatar.key, title: User.find(@mother.user_id).name, class: "avatar"%>
-                <% end %>
-              </li>
+              <li class="list-inline-item"><h5><%= @mother.name %></h5></li>
             </ul>
           </div>
           <div class="mother-price">
-            <p><%= @mother.price %> </p>
+            <h5><%= @mother.price %><i class="fas fa-euro-sign"></i> </h5>
           </div>
         </div>
         <!--   FIN DU HEADER -->
         <div class="mother-content d-flex justify-content-between">
           <!--  PARTIE DE GAUCHE -->
           <div class="mother-stats">
-            <ul class="mother-icons list-inline" style="width: 200px;">
-              <li class="list-inline-item">a</li>
+            <ul class="mother-icons list-inline">
+              <li class="list-inline-item"> </li>
+
+              <li class="list-inline-item">age</li>
+              <p><%= @mother.age%> ans</p>
+              <li class="list-inline-item">hobby</li>
+              <p> <%= @mother.hobbies %> </p>
+              <li class="list-inline-item"><i class="fas fa-home"></i></li>
               <p><%= @mother.location %></p>
-              <li class="list-inline-item">b</li>
-              <p><%= @mother.age%> </p>
-              <li class="list-inline-item">c</li>
-              <p></p>
-              <li class="list-inline-item">d</li>
-              <p></p>
             </ul>
           </div>
           <!--   FIN DEPARTIE DE GAUCHE -->
           <div class="mother-text">
-            <p><%= @mother.description %></p>
+            <p><%= @mother.description %>  <%= link_to(user_path(@mother.user)) do %>
+                  <%=cl_image_tag User.find(@mother.user_id).avatar.key, title: User.find(@mother.user_id).name, class: "avatar"%>
+                <% end %></p>
           </div>
         </div>
       </div>
