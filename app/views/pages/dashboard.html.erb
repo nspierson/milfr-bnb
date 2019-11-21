@@ -1,17 +1,30 @@
 <div class="container" style="min-height: 87vh">
-  Bienvenue <%= @user.name %> sur ton Dashboard
-  <i class="fas fa-check" style="color:green"></i>
-  <i class="fas fa-times" style="color:red"></i>
+  Coucou! Bienvenue <%= @user.name %> sur ton Dashboard
+
   <i class="fas fa-comment-dots"></i>
 
   <p><strong>Liste de tes MIFLR</strong></p>
     <% @mothers.each do |mother| %>
+      <%= cl_image_tag mother.photos.first.key, height: 100 %>
       <p><%= mother.name %></p>
     <% end %>
   <p><strong>Liste des requêtes de tes MILFR</strong></p>
-    <% @requests.each do |request| %>
-      <p><%= request.user.name %> a booke la mere <%= request.mother.name %></p>
+    <% @requests.each do |booking| %>
+      <p><%= booking.user.name %>
+        a booke la mere <%= booking.mother.name %>
+        <br>Du <%= booking.starts_at %>
+        au <%= booking.ends_at %>
+        <br>Requête <span data-booking-id="<%= booking.id %>"> En Attente </span>
+        <br>
+          <%= link_to booking_accepted_path(booking), remote: true do  %>
+            <i class="fas fa-check" style="color:green"></i>
+          <% end %>
+          <%= link_to booking_declined_path(booking), remote: true do  %>
+            <i class="fas fa-times" style="color:red"></i>
+          <% end %>
+      </p>
     <% end %>
+
 
 
   <p><strong>Liste de tes réservations</strong></p>

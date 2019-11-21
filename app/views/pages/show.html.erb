@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="height: 87vh">
   <div class="d-flex">
 
     <div class="col-4 user-info-card">
@@ -20,6 +20,7 @@
       <div class="user-right-column-top">
         <h1>Bonjour, je suis <%= @user.name %>!</h1>
         <p>Membre depuis le <%= @user.created_at.strftime("%d-%m-%Y") %></p>
+
         <p><i class="fas fa-quote-left"></i></p>
         <p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, placeat voluptate iusto tempore, fugiat officiis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, mollitia.</em></p>
         <p class="text-sm-right"><i class="fas fa-quote-right"></i></p>
