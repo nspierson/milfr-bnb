@@ -29,7 +29,7 @@
         <%= simple_form_for [@mother, @review] do |f|  %>
         <%= f.input :rating, collection: [['⭐︎', 1], ['⭐︎⭐︎', 2], ['⭐︎⭐︎⭐︎', 3], ['⭐︎⭐︎⭐︎⭐︎', 4], ['⭐︎⭐︎⭐︎⭐︎⭐︎', 5]] %>
         <%= f.input :description %>
-        <%= f.submit "Submit", class:"mb-3 btn btn-primary" %>
+        <%= f.submit "Submit", class:"mb-3 btn-form" %>
         <% end %>
       </div>
   </div>
