@@ -1,0 +1,12 @@
+.btn-form{
+  background-color: #B71D12;
+  color: white;
+  border-radius: 10px;
+  padding: 8px 24px;
+  transition: background 0.2s ease;
+}
+
+.btn-form:hover{
+  box-shadow: 2px 2px 0px $medium-red;
+  opacity: 1;
+}
