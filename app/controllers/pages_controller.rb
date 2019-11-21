@@ -6,6 +6,9 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = current_user
+    @bookings = Booking.where(user: @user)
+    @mothers = Mother.where(user: @user)
+    @requests = Booking.where(mother: @mothers)
   end
 
   def show

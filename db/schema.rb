@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_21_101249) do
+ActiveRecord::Schema.define(version: 2019_11_21_111228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2019_11_21_101249) do
     t.boolean "accept", default: false
     t.boolean "done", default: false
     t.text "comment_to_user"
+    t.boolean "decision", default: false
     t.index ["mother_id"], name: "index_bookings_on_mother_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
