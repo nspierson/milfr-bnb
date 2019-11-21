@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard', as: :dashboard
   get 'pages/:id', to: 'pages#show', as: :user
-  
-  resources :bookings, only: :show
+
+  resources :bookings, only: :show do
+    get 'accepted', to: 'bookings#mark_as_accepted'
+    get 'declined', to: 'bookings#mark_as_declined'
+  end
 
   resources :mothers, only: [:show, :index] do
     resources :bookings, only: :create
