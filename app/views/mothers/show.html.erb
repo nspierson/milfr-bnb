@@ -46,54 +46,68 @@
     </div>
     <%= render "reviews-board" %>
     </div>
-    <div class="booking-card col-3 offset-1">
-      <div class="container">
-        <h3 class="text-center">Ajoutez des dates pour voir le prix</h3>
+    <% if current_user %>
+      <div class="booking-card col-3 offset-1">
+        <div class="container">
+          <h3 class="text-center">Ajoutez des dates pour voir le prix</h3>
+        </div>
+            <%= simple_form_for [@mother, @booking] do |f| %>
+            <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_start"} %>
+            <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
+            <div class="d-flex justify-content-between align-items-center"  data-toggle="modal" data-target="#CheckOutModal">
+              <%= f.button :submit, "Book now", id: 'booking-button', data: { confirm: "Do you validate the booking? You will find the receipt and the money will be directly withdrawn from your pocket."}, class: "btn btn-flat" %>
+              <h3 class="font-weight-bold" id="price-assessment"></h3>
+            </div>
+            <% end %>
+        <div>
+          <p class="text-center"></p>
+        </div>
+        <div>
+          <p>Cette belle-mère attire beaucoup l'attention.
+             L'annonce a été consultée plus de <strong><%= rand(10..50) * 10 %></strong> fois au cours de la dernière semaine.
+          </p>
+        </div>
       </div>
-          <%= simple_form_for [@mother, @booking] do |f| %>
-          <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_start"} %>
-          <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
-          <div class="d-flex justify-content-between align-items-center"  data-toggle="modal" data-target="#CheckOutModal">
-            <%= f.button :submit, "Book now", id: 'booking-button', data: { confirm: "Do you validate the booking? You will find the receipt and the money will be directly withdrawn from your pocket."}, class: "btn-form" %>
-            <h3 class="font-weight-bold" id="price-assessment"></h3>
+
+      <div class="modal" tabindex="-1" role="dialog" id="CheckOutModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Congratulation !</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>You, <strong><%= @booking.user.name %></strong>,</p>
+              <p>Rented the mother <strong><%= @booking.mother.name %></strong></p>
+              <p>Starting at: <strong><span id='modalStart'></span></strong></p>
+              <p>Ending at: <strong><span id="modalEnd"></span></strong></p>
+              <p>For a total price of <strong><span id="modalPrix"></span> </strong></p>
+              <p>Happy Mother-sitting!</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeButton">Thank you!</button>
+              <%= link_to "Return Home", root_path, class: "btn btn_primary mx-6" %>
+            </div>
           </div>
-          <% end %>
-      <div>
-        <p class="text-center"></p>
+        </div>
       </div>
-      <div>
-        <p>Cette belle-mère attire beaucoup l'attention.
-           L'annonce a été consultée plus de <strong><%= rand(10..50) * 10 %></strong> fois au cours de la dernière semaine.
-        </p>
+    <% else %>
+      <div class="booking-card col-3 offset-1">
+        <div class="container">
+          <div class="flex">
+          <h2>Pour louer cette MILFR veuillez vous connecter.</h2>
+            <div class= 'my-5'>
+            <%= link_to "se connecter", new_user_session_path, class: "btn-form" %>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>
 
 
 
-<div class="modal" tabindex="-1" role="dialog" id="CheckOutModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Congratulation !</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>You, <strong><%= @booking.user.name %></strong>,</p>
-        <p>Rented the mother <strong><%= @booking.mother.name %></strong></p>
-        <p>Starting at: <strong><span id='modalStart'></span></strong></p>
-        <p>Ending at: <strong><span id="modalEnd"></span></strong></p>
-        <p>For a total price of <strong><span id="modalPrix"></span> </strong></p>
-        <p>Happy Mother-sitting!</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeButton">Thank you!</button>
-        <%= link_to "Return Home", root_path, class: "btn btn_primary mx-6" %>
-      </div>
-    </div>
-  </div>
-</div>
 
