@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="height: 87vh">
   <div class="d-flex">
 
     <div class="col-4 user-info-card">
@@ -18,15 +18,23 @@
     </div>
     <div class="user-right-column col-6 offset-1">
       <div class="user-right-column-top">
+        <h1>Bonjour, je suis <%= @user.name %>!</h1>
         <p>Membre depuis le <%= @user.created_at.strftime("%d-%m-%Y") %></p>
-        <p><% @user.reviews.each do |com| %></p>
-          <%= com.description %>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, placeat voluptate iusto tempore, fugiat officiis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, mollitia.</p>
+      </div>
+        <h5>MILFRs de <%= @user.name %></h5>
+      <div class="d-flex justify-content-around">
+        <% @user.mothers.sample(2).each do |mother| %>
+          <div class="user-right-column-mother-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path mother.photos.sample.key, crop: :thumb, gravity: :face, width: 200, height: 200 %>')">
+            <%= mother.name %>
+          </div>
         <% end %>
       </div>
+        <p style="color: blue">Show more !(<%= @user.mothers.length - 2 %>)</p>
 
       <div>
-        <% @user.mothers.each do |mother| %>
-        <%= mother.name %>
+        <% @user.reviews.each do |com| %>
+          <%= com.description %>
         <% end %>
       </div>
     </div>
