@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get 'pages/:id', to: 'pages#show', as: :user
 
   resources :bookings, only: :show
 
@@ -16,4 +17,6 @@ Rails.application.routes.draw do
   end
 
   resources :mothers, only: [:edit, :update, :destroy]
+
+
 end
