@@ -25,10 +25,6 @@ class BookingsController < ApplicationController
 
   def mark_as_accepted
     @booking = Booking.find(params[:booking_id])
-    @user = @booking.mother.user
-    @mothers = Mother.where(user: @user)
-    @bookings = Booking.where(user: @user)
-    @requests = Booking.where(mother: @mothers)
     @booking.decision = true
     @booking.accept = true
     @booking.save
@@ -40,10 +36,6 @@ class BookingsController < ApplicationController
 
   def mark_as_declined
     @booking = Booking.find(params[:booking_id])
-    @user = @booking.mother.user
-    @mothers = Mother.where(user: @user)
-    @bookings = Booking.where(user: @user)
-    @requests = Booking.where(mother: @mothers)
     @booking.decision = true
     @booking.accept = false
     @booking.save
