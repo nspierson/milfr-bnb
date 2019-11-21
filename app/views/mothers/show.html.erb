@@ -17,7 +17,9 @@
             <% end %>
           <% end %>
           <% if User.find(@mother.user_id).avatar.attached? %>
-            <%= cl_image_tag User.find(@mother.user_id).avatar.key, title: User.find(@mother.user_id).name, class: "avatar" %>
+            <%= link_to(user_path(@mother.user)) do %>
+            <%=cl_image_tag User.find(@mother.user_id).avatar.key, title: User.find(@mother.user_id).name, class: "avatar"%>
+            <% end %>
           <% else %>
             <%= image_tag "http://icons.iconarchive.com/icons/gianni-polito/colobrush/256/software-crystal-msn-icon.png", width: 40 %>
           <% end %>
