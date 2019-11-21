@@ -10,7 +10,7 @@
     <div id="home-search">
       <%= simple_form_for :search, url: mothers_path, method: "GET", html: { class: 'form-inline', id: 'location-search' } do |f| %>
         <%= f.input :location, label: false, input_html: {value: "", placeholder: "City, Address..."} %>
-        <%= f.submit "Find", class: "btn form" %>
+        <%= f.submit "Find", class: "btn-form" %>
       <% end %>
     </div>
   </div>
