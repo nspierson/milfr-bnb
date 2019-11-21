@@ -52,7 +52,7 @@
           <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_start"} %>
           <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
           <div class="d-flex justify-content-between align-items-center"  data-toggle="modal" data-target="#CheckOutModal">
-            <%= f.button :submit, "Book now", id: 'booking-button', data: { confirm: "Do you validate the booking? You will find the receipt and the money will be directly withdrawn from your pocket."}, class: "btn btn-flat" %>
+            <%= f.button :submit, "Book now", id: 'booking-button', data: { confirm: "Do you validate the booking? You will find the receipt and the money will be directly withdrawn from your pocket."}, class: "btn-form" %>
             <h3 class="font-weight-bold" id="price-assessment"></h3>
           </div>
           <% end %>
