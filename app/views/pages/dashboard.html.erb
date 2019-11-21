@@ -1,0 +1,27 @@
+<div class="container" style="min-height: 87vh">
+  Bienvenue <%= @user.name %> sur ton Dashboard
+  <i class="fas fa-check" style="color:green"></i>
+  <i class="fas fa-times" style="color:red"></i>
+  <i class="fas fa-comment-dots"></i>
+
+  <p><strong>Liste de tes MIFLR</strong></p>
+    <% @mothers.each do |mother| %>
+      <p><%= mother.name %></p>
+    <% end %>
+  <p><strong>Liste des requêtes de tes MILFR</strong></p>
+    <% @requests.each do |request| %>
+      <p><%= request.user.name %> a booke la mere <%= request.mother.name %></p>
+    <% end %>
+
+
+  <p><strong>Liste de tes réservations</strong></p>
+    <% @bookings.each do |booking| %>
+      <p>Periode: <%= booking.starts_at %> to
+        <%= booking.ends_at %>,
+        - Prix: <%= booking.price %> euros
+        - Décision: <%= booking.decision ? "Le propriétaire a pris une décision" : "en attente, le propriétaire n'a pas pris de décision" %>
+        - Requête <%= booking.accept ? "acceptée" : "déclinée (ou decision non prise)"%>
+        - Status de la réservation <%= booking.done ? "completé" : "a venir"%>
+      </p>
+    <% end %>
+</div>

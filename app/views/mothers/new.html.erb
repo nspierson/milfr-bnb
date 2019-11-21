@@ -1,15 +1,35 @@
-<div class="container">
-  <div class="col-4 offset-4">
-    <h1>Add your mother</h1>
-    <%= simple_form_for [@user, @mother] do |t|%>
-    <%= t.input :name %>
-    <%= t.input :age %>
-    <%= t.input :location %>
-    <%= t.input :price %>
-    <%= t.input :hobbies %>
-    <%= t.input :description %>
-    <%= t.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= t.submit %>
-    <% end %>
+<div id="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.thesun.co.uk/wp-content/uploads/2019/07/NINTCHDBPICT000509962875.jpg?w=1240);">
+  <div class="container">
+    <div class="col-8 ">
+      <div class ="form-background">
+          <h1>Ajouter une MILFR</h1>
+          <%= simple_form_for [@user, @mother] do |t|%>
+          <div class='form-flex'>
+            <div class="col-10">
+              <%= t.input :name %>
+            </div>
+            <div class="col-2">
+            <%= t.input :age %>
+            </div>
+          </div>
+          <div class='form-flex'>
+            <div class="col-9">
+              <%= t.input :location %>
+            </div>
+            <div class="col-3">
+              <%= t.input :price %>
+            </div>
+          </div>
+          <div class="col-12">
+            <%= t.input :hobbies %>
+          </div>
+          <div class="col-12">
+            <%= t.input :description %>
+          </div>
+          <%= t.input :photos, as: :file, input_html: { multiple: true } %>
+          <%= t.submit "Ajouter ma MILFR", class: "btn-form" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

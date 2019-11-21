@@ -44,7 +44,7 @@ mother_b.save
 mother_c =Mother.new({
   name:  "Geneviève de Fontenay",
   age:  80,
-  location:  " 13 rue Ramus, 75020 Paris",
+  location:  "13 rue Ramus, 75020 Paris",
   price: 275 ,
   description:  " Beaucoup de discussion, souriante, elle accompagnera parfaitement vos repas à la Tour d'Argent !!",
   hobbies: "Couture" ,
@@ -58,7 +58,7 @@ mother_c.save
 mother_a = Mother.create({
   name: "Nathou",
   age: 38,
-  location: "Paris" ,
+  location: " 14 rue Crespin du Gast, 75011 Paris" ,
   price: 400,
   description: " Jeune belle-mère, encore novice, néanmoins son métier fait qu'elle s'adaptera à toutes les situations. Souriante, agréable et avec beaucoup de discussion, elle vous fera oublier votre ancienne belle-mère",
   hobbies: " Cinéma"
@@ -66,8 +66,11 @@ mother_a = Mother.create({
 
 file = URI.open('https://res.cloudinary.com/dlny73adr/image/upload/v1574245999/seed-milfr/oJLxU61fosPMuhGrch1NxBsS.jpg')
 mother_a.photos.attach(io: file, filename: 'nathalie.jpg', content_type: 'image/jpg')
+file = URI.open('https://res.cloudinary.com/dlny73adr/image/upload/v1574259219/seed-milfr/Natalie-Portman-e1503418929429_h1ydka.jpg')
+mother_a.photos.attach(io: file, filename: 'nathalie.jpg', content_type: 'image/jpg')
 mother_a.user = user
 mother_a.save
+
 
 mother_d =Mother.new({
   name: "Funky Nanny",
@@ -115,7 +118,7 @@ mother_f.save
 mother_g =Mother.new({
   name: " Marie-José",
   age:  78,
-  location:  "8 rue Belhommme, 75008 Paris",
+  location:  "8 rue Belhomme, 75008 Paris",
   price: 130,
   description:  "Prépare de très bon petits plats",
   hobbies: "Motus" ,
