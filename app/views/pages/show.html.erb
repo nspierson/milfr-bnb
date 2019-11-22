@@ -1,4 +1,4 @@
-<div class="container" style="height: 87vh">
+<div class="container">
   <div class="d-flex">
 
     <div class="col-4 user-info-card">
@@ -7,10 +7,10 @@
           <%= cl_image_tag @user.avatar.key, class: "avatar-big" %>
         </div>
         <div class="user-info-card-middle">
-          <p><i class="fas fa-comment-dots" style="color:#B71D12"></i> <%= @user.reviews.length %> Commentaire(s)</p>
+          <p><i class="fas fa-comment-dots" style="color:#B71D12"></i> <%= pluralize @user.reviews.length, "Commentaire" %></p>
           <p><i class="fas fa-check" style="color:green"></i>            Utilisateur verifié</p>
         </div>
-        <div>
+        <div class="user-info-card-bottom">
           <p><i class="fas fa-female" style="color:#B71D12"></i> <%= @user.mothers.length %> MILFRs actuellement</p>
           <p><i class="fas fa-home" style="color:#B71D12"></i>Paris</p>
         </div>
