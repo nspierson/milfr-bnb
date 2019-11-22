@@ -31,7 +31,6 @@ class MothersController < ApplicationController
     @mother = Mother.find(params[:id])
     @booking = Booking.new
     @review = Review.new
-    raise
   end
 
   def create
