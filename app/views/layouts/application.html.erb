@@ -11,8 +11,11 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
   <body>
+
     <%= render "shared/navbar" %>
-    <%= yield %>
+    <div class="my-container" >
+      <%= yield %>
+    </div>
     <%= render "shared/footer" %>
     <%= render 'shared/flashes' %>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
