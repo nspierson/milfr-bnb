@@ -31,7 +31,6 @@ class BookingsController < ApplicationController
     respond_to do |format|
       format.html { render 'pages/dashboard' }
       format.js
-      format.js = { flash[:alert] = "#{@booking.mother.name} a bien ete booke." }
     end
   end
 
