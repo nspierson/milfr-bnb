@@ -4,8 +4,8 @@
       <div class ="form-background">
           <h1>Ajouter une MILFR</h1>
           <%= simple_form_for [@user, @mother] do |t|%>
-          <div class='form-flex'>
-            <div class="col-10">
+          <div class='form-flex '>
+            <div class="col-10 mt-3">
                <%= t.input :name , :label => "Nom de la MILFR"%>
             </div>
             <div class="col-2">
@@ -14,7 +14,7 @@
           </div>
           <div class='form-flex'>
             <div class="col-9">
-              <%= t.input :location %>
+              <%= t.input :location, :label => "Adresse" %>
             </div>
             <div class="col-3">
               <%= t.input :price, :label => "Prix" %>
