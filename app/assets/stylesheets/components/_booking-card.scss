@@ -33,6 +33,10 @@
   border-radius: 5px;
 }
 
+.mother-name h5 {
+  margin: 10px;
+}
+
 .header{
   border-bottom: 1px solid lightgray;
   background-color: $light-blue;
@@ -45,6 +49,7 @@
 .mother-price i, .mother-price h5 {
   color: $strong-red;
   font-style: bolder;
+  margin: 10px;
 }
 .mother-content{
   padding: 9px;
