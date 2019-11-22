@@ -7,7 +7,7 @@
         <div class="d-flex py-2">
           <div class="reviews-info-owner-avatar">
               <% if User.find(review.user_id).avatar.attached? %>
-                <%= link_to(user_path(@mother.user)) do %>
+                <%= link_to(user_path(User.find(review.user_id))) do %>
                   <%=cl_image_tag User.find(review.user_id).avatar.key, title: User.find(@mother.user_id).name, class: "avatar"%>
               <% end %>
               <% else %>
