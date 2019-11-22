@@ -78,28 +78,30 @@
         <% @bookings.each do |booking| %>
       <div class="border d-flex justify-content-between align-items-center shadow-sm rounded p-2 mb-1">
           <%= cl_image_tag booking.mother.photos.first.key, class: "avatar" %>
-          <p style="margin-bottom: 0px; width: 300px;">
-            <span style="font-size:16px">Duree: <%= (booking.starts_at.nil?)||(booking.ends_at.nil?) ? "" : ((Date.parse(booking.ends_at) - Date.parse(booking.starts_at)).to_i)%> jours</span>
+          <p style="margin-bottom: 0px; width: 300px;" class="pl-2">
+            <span style="font-size:14px">Durée: <%= (booking.starts_at.nil?)||(booking.ends_at.nil?) ? "" : ((Date.parse(booking.ends_at) - Date.parse(booking.starts_at)).to_i)%> jours</span>
             <br>
             <small>Du <%= booking.starts_at %> au
             <%= booking.ends_at %></small>
             <br> <small><em>Prix: <%= booking.price %> euros</em></small>
           </p>
-          <div>
-            <% if booking.decision %>
-              <p style="font-size:16px"> Requête: <%= booking.accept ? "✓" : "X"%></p>
-              <% if booking.accept %>
-                <p style="font-size:16px; margin-bottom: 0px">Status: <%= booking.done ? "👌" : "⏳"%></p>
-              <% end %>
-            <% else %>
-              <p style="font-size:16px"> En attente</p>
-            <% end %>
+            <% if (booking.decision && booking.accept) %>
+          <div id="booking-status" class="text-center" style="background:#c2e8ce">
+              <span> Accepté</span>
           </div>
+            <% elsif booking.decision %>
+          <div id="booking-status" class="text-center" style="background:#f66767">
+              <span> Refusé </span>
+          </div>
+            <% else %>
+          <div id="booking-status" style="background:#f6da63" class="text-center">
+            <span> En attente</span>
+          </div>
+          <% end %>
       </div>
         <% end %>
   </div>
 
 </div>
-
 
 
