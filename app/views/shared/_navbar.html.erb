@@ -21,7 +21,7 @@
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
-            <%= link_to "Ajoutez vos MILFR", new_user_mother_path(current_user.id), class: "dropdown-item" %>
+            <%= link_to "Ajoutez une MILFR", new_user_mother_path(current_user.id), class: "dropdown-item" %>
             <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure to log out?"}, class: "dropdown-item" %>
           </div>
         </li>
