@@ -2,7 +2,7 @@
 
   <div class="d-flex">
 
-    <div class="col-3 user-info-card" style="height:540px" >
+    <div class="col-3 user-info-card" style="height:460px" >
       <div class="container">
         <div class="user-info-card-avatar">
           <%= cl_image_tag @user.avatar.key, class: "avatar-big" %>
@@ -10,10 +10,6 @@
         <div class="user-info-card-middle">
           <p><i class="fas fa-comment-dots" style="color:#B71D12"></i> <%= @user.reviews.length %> Commentaire(s)</p>
           <p><i class="fas fa-check" style="color:green"></i> Utilisateur verifié</p>
-        </div>
-        <div class="user-info-card-middle">
-          <p><i class="fas fa-female" style="color:#B71D12"></i> <%= @user.mothers.length %> MILFRs actuellement</p>
-          <p><i class="fas fa-home" style="color:#B71D12"></i> Paris</p>
         </div>
         <div class="pt-3">
           <p><i class="fas fa-dollar-sign" style="color:#B71D12"></i> <%= @money %> euros recoltés avec tes MILFRs</p>
@@ -59,7 +55,7 @@
 
 
     <div class="col-4 offset-1 my-3">
-      <p class="mt-3"><strong>Tes MIFLRs</strong></p>
+      <p class="mt-3"><strong>Tes MIFLRs (<%= @user.mothers.length %>)</strong></p>
       <div class="d-flex justify-content-around flex-wrap mb-3 border-top">
         <% @user.mothers.first(2).each do |mother| %>
           <%= link_to mother_path(mother) do %>
