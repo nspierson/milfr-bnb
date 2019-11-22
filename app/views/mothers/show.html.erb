@@ -5,14 +5,14 @@
      <!--  JE TRAVAILLE A PARTIR D ICI SUR LA DESCRIPTION -->
       <div class="mother-info">
     <!--     C EST LE HEADER -->
-        <div class="header d-flex justify-content-around align-items-center">
+        <div class="header d-flex justify-content-around align-items-stretch mother-info-card-top">
           <div class="mother-name">
             <ul class="list-inline">
               <li class="list-inline-item"><h5><%= @mother.name %></h5></li>
             </ul>
           </div>
           <div class="mother-price">
-            <h5><%= @mother.price %><i class="fas fa-euro-sign"></i> </h5>
+            <h5><%= @mother.price %>€</h5>
           </div>
         </div>
         <!--   FIN DU HEADER -->
@@ -22,11 +22,11 @@
             <ul class="mother-icons list-inline">
               <li class="list-inline-item"> </li>
 
-              <li class="list-inline-item">age</li>
-              <p><%= @mother.age%> ans</p>
-              <li class="list-inline-item">hobby</li>
+              <li class="list-inline-item"><i class="fas fa-birthday-cake" style="margin-left: -10px"></i> Age</li>
+              <p><%= @mother.age%> Ans</p>
+              <li class="list-inline-item"><i class="fas fa-table-tennis"></i> Hobbies</li>
               <p> <%= @mother.hobbies %> </p>
-              <li class="list-inline-item"><i class="fas fa-home"></i></li>
+              <li class="list-inline-item"><i class="fas fa-home"></i> Adresse</li>
               <p><%= @mother.location %></p>
             </ul>
           </div>
@@ -51,7 +51,7 @@
             <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_start"} %>
             <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
             <div class="d-flex justify-content-between align-items-center"  data-toggle="modal" data-target="#CheckOutModal">
-              <%= f.button :submit, "Book now", id: 'booking-button', data: { confirm: "Do you validate the booking? You will find the receipt and the money will be directly withdrawn from your pocket."}, class: "btn btn-flat" %>
+              <%= f.button :submit, "Book now", id: 'booking-button', data: { confirm: "Do you validate the booking? You will find the receipt and the money will be directly withdrawn from your pocket."}, class: "btn btn-flat", style: "background: #B71D12;" %>
               <h3 class="font-weight-bold" id="price-assessment"></h3>
             </div>
             <% end %>
