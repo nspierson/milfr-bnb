@@ -22,8 +22,8 @@
 
 
 #banner {
+  height: calc(100vh - 70px);
   background-size: cover;
-  height: 86vh;
   text-align: center;
   display: flex;
   align-items: center;
