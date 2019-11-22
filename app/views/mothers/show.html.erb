@@ -40,7 +40,27 @@
     <!--      J'ARRETTE ICI --------- -->
     <%= render "reviews-board" %>
     </div>
-    <% if current_user %>
+
+    <% if current_user == User.find(@mother.user_id) %>
+      <div class="booking-card col-3 offset-1">
+        <div class="container">
+          <div class="flex-card-condition">
+            <h2 class="text-center py-5">Votre MILFR</h2>
+            <p class=" pb-3"><i class="fas fa-euro-sign" style="color:#B71D12"> Votre MILFR a gagné 0 euro</i></p>
+            <p class="mb-3"><i class="fas fa-female" style="color:#B71D12"> Votre MILFR a été louée 0 fois</i></p>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h6 class="pt-5">Meme si vous aimez enormement votre MILFR vous ne pouvez pas la louer, déso pas déso.</h6>
+
+          </div>
+        </div>
+      </div>
+    <% elsif current_user %>
       <div class="booking-card col-3 offset-1">
         <div class="container">
           <h3 class="text-center">Ajoutez des dates pour voir le prix</h3>
@@ -62,7 +82,6 @@
           </p>
         </div>
       </div>
-
       <div class="modal" tabindex="-1" role="dialog" id="CheckOutModal">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -100,7 +119,4 @@
     <% end %>
   </div>
 </div>
-
-
-
 
