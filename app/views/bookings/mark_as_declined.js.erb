@@ -1,5 +1,6 @@
 function decline() {
-  document.querySelector("[data-booking-id='<%= @booking.id %>']").innerHTML = "Decliné";
+  document.querySelector("[data-booking-accepted-id='<%= @booking.id %>']").remove();
+  document.querySelector("[data-booking-div-id='<%= @booking.id %>']").style.backgroundColor = "#f66767";
 }
 
 decline()

@@ -5,14 +5,12 @@
      <!--  JE TRAVAILLE A PARTIR D ICI SUR LA DESCRIPTION -->
       <div class="mother-info">
     <!--     C EST LE HEADER -->
-        <div class="header d-flex justify-content-around align-items-center">
+        <div class="header d-flex justify-content-between align-items-center mother-info-card-top">
           <div class="mother-name">
-            <ul class="list-inline">
-              <li class="list-inline-item"><h5><%= @mother.name %></h5></li>
-            </ul>
+             <h5><%= @mother.name %></h5>
           </div>
           <div class="mother-price">
-            <h5><%= @mother.price %><i class="fas fa-euro-sign"></i> </h5>
+            <h5><span id="price"><%= @mother.price %></span>€</h5>
           </div>
         </div>
         <!--   FIN DU HEADER -->
@@ -22,12 +20,12 @@
             <ul class="mother-icons list-inline">
               <li class="list-inline-item"> </li>
 
-              <li class="list-inline-item">age</li>
-              <p><%= @mother.age%> ans</p>
-              <li class="list-inline-item">hobby</li>
-              <p> <%= @mother.hobbies %> </p>
-              <li class="list-inline-item"><i class="fas fa-home"></i></li>
-              <p><%= @mother.location %></p>
+              <li class="list-inline-item" style="font-size: 14px"><i class="fas fa-birthday-cake" style="margin-left: -10px"></i> Age</li>
+              <p><em><%= @mother.age%></em></p>
+              <li class="list-inline-item" style="font-size: 14px"><i class="fas fa-table-tennis"></i> Hobbies</li>
+              <p><em><%= @mother.hobbies %></em></p>
+              <li class="list-inline-item" style="font-size: 14px"><i class="fas fa-home"></i> Adresse</li>
+              <p><em><%= @mother.location %></em></p>
             </ul>
           </div>
           <!--   FIN DEPARTIE DE GAUCHE -->
@@ -67,14 +65,14 @@
         <div class="container">
           <h3 class="text-center">Ajoutez des dates pour voir le prix</h3>
         </div>
-        <%= simple_form_for [@mother, @booking] do |f| %>
-          <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_start"} %>
-          <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
-          <div class="d-flex justify-content-between align-items-center"  data-toggle="modal" data-target="#CheckOutModal">
-            <%= f.button :submit, "Book now", id: 'booking-button', data: { confirm: "Do you validate the booking? You will find the receipt and the money will be directly withdrawn from your pocket."}, class: "btn btn-flat" %>
-            <h3 class="font-weight-bold" id="price-assessment"></h3>
-          </div>
-        <% end %>
+            <%= simple_form_for [@mother, @booking] do |f| %>
+            <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_start"} %>
+            <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
+            <div class="d-flex justify-content-between align-items-center"  data-toggle="modal" data-target="#CheckOutModal">
+              <%= f.button :submit, "Book now", id: 'booking-button', data: { confirm: "Do you validate the booking? You will find the receipt and the money will be directly withdrawn from your pocket."}, class: "btn btn-flat", style: "background: #B71D12;" %>
+              <h3 class="font-weight-bold" id="price-assessment"></h3>
+            </div>
+            <% end %>
         <div>
           <p class="text-center"></p>
         </div>
@@ -94,11 +92,10 @@
               </button>
             </div>
             <div class="modal-body">
-              <p>You, <strong><%= @booking.user.name %></strong>,</p>
-              <p>Rented the mother <strong><%= @booking.mother.name %></strong></p>
-              <p>Starting at: <strong><span id='modalStart'></span></strong></p>
-              <p>Ending at: <strong><span id="modalEnd"></span></strong></p>
-              <p>For a total price of <strong><span id="modalPrix"></span> </strong></p>
+              <p><strong><%= @mother.name %></strong> sera avec toi</p>
+              <p>A partir de: <strong><span id='modalStart'></span></strong></p>
+              <p>Jusqu'au: <strong><span id="modalEnd"></span></strong></p>
+              <p>Pour un total de: <strong><span id="modalPrix"></span> </strong></p>
               <p>Happy Mother-sitting!</p>
             </div>
             <div class="modal-footer">

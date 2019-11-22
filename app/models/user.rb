@@ -7,5 +7,6 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :mothers
   has_one_attached :avatar
-  # validates :name, :email, presence: true, uniqueness: true
+  validates :name, :email, presence: true, uniqueness: true
+  validates :avatar, attached: true
 end

@@ -4,11 +4,11 @@
       </div>
       <ul>
         <% @mother.reviews.each do |review| %>
-        <div class="d-flex pt-3">
+        <div class="d-flex py-2">
           <div class="reviews-info-owner-avatar">
               <% if User.find(review.user_id).avatar.attached? %>
                 <%= link_to(user_path(@mother.user)) do %>
-                  <%=cl_image_tag User.find(@mother.user_id).avatar.key, title: User.find(@mother.user_id).name, class: "avatar"%>
+                  <%=cl_image_tag User.find(review.user_id).avatar.key, title: User.find(@mother.user_id).name, class: "avatar"%>
               <% end %>
               <% else %>
                 <%= image_tag "http://icons.iconarchive.com/icons/gianni-polito/colobrush/256/software-crystal-msn-icon.png", width: 40 %>
@@ -28,11 +28,16 @@
         </div>
         <% end %>
       </ul>
-      <div class="m-3">
-        <%= simple_form_for [@mother, @review] do |f|  %>
-        <%= f.input :rating, collection: [['⭐︎', 1], ['⭐︎⭐︎', 2], ['⭐︎⭐︎⭐︎', 3], ['⭐︎⭐︎⭐︎⭐︎', 4], ['⭐︎⭐︎⭐︎⭐︎⭐︎', 5]] %>
-        <%= f.input :description %>
-        <%= f.submit "Submit", class:"mb-3 btn-form" %>
+        <% if current_user == User.find(@mother.user_id) %>
+          <div class="m-3">
+          </div>
+        <% else %>
+          <div class="m-3">
+            <%= simple_form_for [@mother, @review] do |f|  %>
+            <%= f.input :rating, collection: [['⭐︎', 1], ['⭐︎⭐︎', 2], ['⭐︎⭐︎⭐︎', 3], ['⭐︎⭐︎⭐︎⭐︎', 4], ['⭐︎⭐︎⭐︎⭐︎⭐︎', 5]] %>
+            <%= f.input :description %>
+            <%= f.submit "Submit", class:"mb-3 btn-form" %>
+            <% end %>
+          </div>
         <% end %>
-      </div>
   </div>
