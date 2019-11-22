@@ -6,7 +6,7 @@
           <%= simple_form_for [@user, @mother] do |t|%>
           <div class='form-flex'>
             <div class="col-10">
-              <%= t.input :name %>
+               <%= t.input :name , :label => "Nom de la MILFR"%>
             </div>
             <div class="col-2">
             <%= t.input :age %>
@@ -17,7 +17,7 @@
               <%= t.input :location %>
             </div>
             <div class="col-3">
-              <%= t.input :price %>
+              <%= t.input :price, :label => "Prix" %>
             </div>
           </div>
           <div class="col-12">
