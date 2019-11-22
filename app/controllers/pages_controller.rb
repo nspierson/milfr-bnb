@@ -7,6 +7,8 @@ class PagesController < ApplicationController
   def dashboard
     @user = current_user
     @bookings = Booking.where(user: @user)
+    @money = 0
+    @bookings.map{ |booking| @money += booking.price.to_i }
     @mothers = Mother.where(user: @user)
     @requests = Booking.where(mother: @mothers)
   end

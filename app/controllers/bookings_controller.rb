@@ -31,6 +31,7 @@ class BookingsController < ApplicationController
     respond_to do |format|
       format.html { render 'pages/dashboard' }
       format.js
+      format.js = { flash[:alert] = "#{@booking.mother.name} a bien ete booke." }
     end
   end
 
@@ -39,6 +40,7 @@ class BookingsController < ApplicationController
     @booking.decision = true
     @booking.accept = false
     @booking.save
+    flash[:alert] = "#{@booking.mother.name} sera triste."
     respond_to do |format|
       format.html { render 'pages/dashboard' }
       format.js
