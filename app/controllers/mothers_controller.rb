@@ -30,9 +30,8 @@ class MothersController < ApplicationController
   def show
     @mother = Mother.find(params[:id])
     @booking = Booking.new
-    @booking.mother = @mother
-    @booking.user = current_user
     @review = Review.new
+    raise
   end
 
   def create
