@@ -1,5 +1,6 @@
 function accept() {
-  document.querySelector("[data-booking-id='<%= @booking.id %>']").innerHTML = "Accepté!";
+  document.querySelector("[data-booking-deleted-id='<%= @booking.id %>']").remove();
+  document.querySelector("[data-booking-div-id='<%= @booking.id %>']").style.backgroundColor = "#c2e8ce";
 }
 
 accept()

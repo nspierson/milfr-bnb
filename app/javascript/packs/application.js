@@ -8,15 +8,15 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 
 
-const element = document.querySelector('#closeButton')
+const element = document.querySelector('#closeButton');
 
 if (element) {
   element.addEventListener('click',(event) => {
-const fin = document.querySelector("#booking-button")
-fin.defaultValue = "Booked!"
-})
+    const fin = document.querySelector("#booking-button")
+    fin.defaultValue = "Booked!"
+    })
+};
 
-}
 initMapbox();
 initAutocomplete({});
 modal();

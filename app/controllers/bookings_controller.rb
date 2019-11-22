@@ -39,7 +39,6 @@ class BookingsController < ApplicationController
     @booking.decision = true
     @booking.accept = false
     @booking.save
-    flash[:alert] = "#{@booking.mother.name} sera triste."
     respond_to do |format|
       format.html { render 'pages/dashboard' }
       format.js

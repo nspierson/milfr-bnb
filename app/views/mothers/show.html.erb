@@ -12,7 +12,7 @@
             </ul>
           </div>
           <div class="mother-price">
-            <h5><%= @mother.price %>€</h5>
+            <h5><span id="price"><%= @mother.price %></span>€</h5>
           </div>
         </div>
         <!--   FIN DU HEADER -->
@@ -75,11 +75,10 @@
               </button>
             </div>
             <div class="modal-body">
-              <p>You, <strong></strong>,</p>
-              <p>Rented the mother <strong></strong></p>
-              <p>Starting at: <strong><span id='modalStart'></span></strong></p>
-              <p>Ending at: <strong><span id="modalEnd"></span></strong></p>
-              <p>For a total price of <strong><span id="modalPrix"></span> </strong></p>
+              <p><strong><%= @mother.name %></strong> sera avec toi</p>
+              <p>A partir de: <strong><span id='modalStart'></span></strong></p>
+              <p>Jusqu'au: <strong><span id="modalEnd"></span></strong></p>
+              <p>Pour un total de: <strong><span id="modalPrix"></span> </strong></p>
               <p>Happy Mother-sitting!</p>
             </div>
             <div class="modal-footer">
