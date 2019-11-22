@@ -2,7 +2,7 @@
 
   <div class="d-flex">
 
-    <div class="col-3 user-info-card ml-n5" style="height:600px" >
+    <div class="col-3 user-info-card" style="height:600px" >
       <div class="container">
         <div class="user-info-card-avatar">
           <%= cl_image_tag @user.avatar.key, class: "avatar-big" %>
@@ -24,7 +24,7 @@
 
 
     <div class="user-right-column col-4 offset-1 mt-3" style="padding-right: 0; padding-left: 0">
-      <p class="mt-3"><strong>Liste des requêtes de tes MILFRs</strong></p>
+      <p class="mt-3"><strong>Requêtes en attente</strong></p>
         <div>
           <% @requests.each do |booking| %>
             <div class="border shadow-sm rounded d-flex justify-content-between align-items-center p-2 mb-1" data-booking-div-id="<%= booking.id %>">
@@ -37,9 +37,9 @@
                   <%= image_tag "http://icons.iconarchive.com/icons/gianni-polito/colobrush/256/software-crystal-msn-icon.png", class: "avatar" %>
                 <% end %>
               <% end %>
-              <p class="text-left ml-1" style="margin-bottom: 0px"><%= booking.user.name %>
+              <p class="text-left" style="margin-bottom: 0px;width: 173px;  "><%= booking.user.name %>
                 veut booker la mère
-                <br> <%= booking.mother.name %>
+                <%= booking.mother.name %>
                 <br><small><em>Du <%= booking.starts_at %>
                 au <%= booking.ends_at %></em></small>
               </p>
@@ -60,39 +60,48 @@
     </div>
 
 
-    <div class="Cuser-right-column col-4 offset-1 mt-3" style="padding-right: 0; padding-left: 0">
-      <p class="mt-3"><strong>Liste de tes réservations de MILFRs</strong></p>
-          <% @bookings.each do |booking| %>
-        <div class="border d-flex justify-content-between align-items-center shadow-sm rounded p-2 mb-1">
-            <%= cl_image_tag booking.mother.photos.first.key, class: "avatar" %>
-            <p style="margin-bottom: 0px">Du <%= booking.starts_at %> au
-              <%= booking.ends_at %>
-              <br> Prix: <%= booking.price %> euros
-            </p>
-            <div>
-              <p style="font-size:13px"> Décision: <%= booking.decision ? "!" : "?" %></p>
-              <p style="font-size:13px"> Requête: <%= booking.accept ? "✓" : "☒"%></p>
-              <% if booking.accept %>
-                <p style="font-size:13px; margin-bottom: 0px">Status: <%= booking.done ? "👌" : "⏳"%></p>
-              <% end %>
+
+    <div class="col-4 offset-1 my-3">
+      <p class="mt-3"><strong>Tes MIFLRs</strong></p>
+      <div class="d-flex justify-content-around flex-wrap mb-3 border-top">
+        <% @user.mothers.first(5).each do |mother| %>
+          <%= link_to mother_path(mother) do %>
+            <div class="user-right-column-mother-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path mother.photos.sample.key, crop: :thumb, gravity: :face, width: 200, height: 200 %>')">
+              <%= mother.name %>
             </div>
-        </div>
           <% end %>
+        <% end %>
+      </div>
     </div>
+
   </div>
 
-  <div class="col-10 offset-3 my-3 border">
-    <p class="mt-3"><strong>Liste de tes MIFLRs</strong></p>
-    <div class="d-flex justify-content-around flex-wrap mb-3 border-top">
-      <% @user.mothers.each do |mother| %>
-        <%= link_to mother_path(mother) do %>
-          <div class="user-right-column-mother-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path mother.photos.sample.key, crop: :thumb, gravity: :face, width: 200, height: 200 %>')">
-            <%= mother.name %>
+  <div class="Cuser-right-column col-6 offset-3 mt-3" style="padding-right: 0; padding-left: 0">
+    <p class="mt-3"><strong>Tes réservations</strong></p>
+        <% @bookings.each do |booking| %>
+      <div class="border d-flex justify-content-between align-items-center shadow-sm rounded p-2 mb-1">
+          <%= cl_image_tag booking.mother.photos.first.key, class: "avatar" %>
+          <p style="margin-bottom: 0px; width: 300px;">
+            <span style="font-size:16px">Duree: <%= (booking.starts_at.nil?)||(booking.ends_at.nil?) ? "" : ((Date.parse(booking.starts_at) - Date.parse(booking.ends_at)).to_i)%> jours</span>
+            <br>
+            <small>Du <%= booking.starts_at %> au
+            <%= booking.ends_at %></small>
+            <br> <small><em>Prix: <%= booking.price %> euros</em></small>
+          </p>
+          <div>
+            <% if booking.decision %>
+              <p style="font-size:16px"> Requête: <%= booking.accept ? "✓" : "☒"%></p>
+              <% if booking.accept %>
+                <p style="font-size:16px; margin-bottom: 0px">Status: <%= booking.done ? "👌" : "⏳"%></p>
+              <% end %>
+            <% else %>
+              <p style="font-size:16px"> En attente</p>
+            <% end %>
           </div>
+      </div>
         <% end %>
-      <% end %>
-    </div>
   </div>
+
 </div>
 
 
