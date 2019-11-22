@@ -1,7 +1,7 @@
 <div class="container" style="min-height: 86vh">
   <div class="d-flex">
 
-    <div class="col-4 user-info-card">
+    <div class="col-3 offset-1 user-info-card">
       <div class="container">
         <div class="user-info-card-avatar">
           <%= cl_image_tag @user.avatar.key, class: "avatar-big" %>
@@ -11,9 +11,10 @@
           <p><i class="fas fa-check" style="color:green"></i>            Utilisateur verifié</p>
         </div>
         <div class="user-info-card-bottom">
-          <p><i class="fas fa-female" style="color:#B71D12"></i> <%= @user.mothers.length %> MILFRs actuellement</p>
-          <p><i class="fas fa-home" style="color:#B71D12"></i>Paris</p>
-          <%= @user.bookings.length %>
+          <p><i class="fas fa-female" style="color:#B71D12"></i>  <%= @user.mothers.length %> MILFRs actuellement</p>
+          <p><i class="fas fa-home" style="color:#B71D12"></i>  Paris</p>
+          <p><i class="fas fa-handshake" style="color:#B71D12"></i>  <%= pluralize @user.bookings.length, "Réservations effectuée" %></p>
+
         </div>
       </div>
     </div>
@@ -29,16 +30,20 @@
         <h5>MILFRs de <%= @user.name %></h5>
       <div class="d-flex justify-content-around flex-wrap cards">
         <% @user.mothers.first(2).each do |mother| %>
+          <%= link_to(mother_path(mother)) do %>
           <div class="user-right-column-mother-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path mother.photos.sample.key, crop: :thumb, gravity: :face, width: 200, height: 200 %>')">
             <%= mother.name %>
           </div>
+          <% end %>
         <% end %>
           <div class="collapse" id="collapseExample">
             <div class="d-flex justify-content-around flex-wrap cards">
               <% @user.mothers.last(5).each do |mother| %>
+                <%= link_to(mother_path(mother)) do %>
                 <div class="user-right-column-mother-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path mother.photos.sample.key, crop: :thumb, gravity: :face, width: 200, height: 200 %>')">
                   <%= mother.name %>
                 </div>
+                <% end %>
               <% end %>
             </div>
           </div>

@@ -4,7 +4,7 @@
       </div>
       <ul>
         <% @mother.reviews.each do |review| %>
-        <div class="d-flex pt-3">
+        <div class="d-flex py-2">
           <div class="reviews-info-owner-avatar">
               <% if User.find(review.user_id).avatar.attached? %>
                 <%= link_to(user_path(@mother.user)) do %>
