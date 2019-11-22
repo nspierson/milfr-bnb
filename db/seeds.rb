@@ -133,7 +133,7 @@ review_1 = Review.new({
   description: " Passé un week-end à la plage, belle-doche fortement agréable",
   rating: 4 ,
   })
-review_1.user = user
+review_1.user = user_b
 review_1.mother = mother_a
 review_1.save
 
