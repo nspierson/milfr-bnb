@@ -2,7 +2,7 @@
 
   <div class="d-flex">
 
-    <div class="col-3 user-info-card" style="height:600px" >
+    <div class="col-3 user-info-card" style="height:540px" >
       <div class="container">
         <div class="user-info-card-avatar">
           <%= cl_image_tag @user.avatar.key, class: "avatar-big" %>
@@ -27,7 +27,7 @@
       <p class="mt-3"><strong>Requêtes en attente</strong></p>
         <div>
           <% @requests.each do |booking| %>
-            <div class="border shadow-sm rounded d-flex justify-content-between align-items-center p-2 mb-1" data-booking-div-id="<%= booking.id %>">
+            <div class="border shadow-sm rounded d-flex justify-content-between align-items-center p-2 mb-1" data-booking-div-id='<%= booking.id %>'>
               <% if booking.user.avatar.attached? %>
                 <%= link_to(user_path(booking.user)) do %>
                   <%= cl_image_tag booking.user.avatar.key, class: "avatar" %>
@@ -37,22 +37,19 @@
                   <%= image_tag "http://icons.iconarchive.com/icons/gianni-polito/colobrush/256/software-crystal-msn-icon.png", class: "avatar" %>
                 <% end %>
               <% end %>
-              <p class="text-left" style="margin-bottom: 0px;width: 173px;  "><%= booking.user.name %>
+              <p class="text-left" style="margin-bottom: 0px;width: 173px;"><%= booking.user.name %>
                 veut booker la mère
                 <%= booking.mother.name %>
                 <br><small><em>Du <%= booking.starts_at %>
                 au <%= booking.ends_at %></em></small>
               </p>
-              <div class="text-right">
-                <%= link_to booking_accepted_path(booking), style:"font-size:25px", remote: true do  %>
-                  <i class="fas fa-check pr-1" style="color:green"></i>
-                <% end %>
-                <%= link_to booking_declined_path(booking), style:"font-size:25px", remote: true do  %>
-                  <i class="fas fa-times" style="color:red"></i>
-                <% end %>
-                <p style="margin-bottom:0px; font-size:13px" data-booking-id="<%= booking.id %>">
-                <br>
-                </p>
+              <div style="width:53px">
+                  <%= link_to booking_accepted_path(booking), style:"font-size:25px", remote: true do  %>
+                    <i data-booking-accepted-id="<%= booking.id %>" class="fas fa-check pr-1" style="color:green"></i>
+                  <% end %>
+                  <%= link_to booking_declined_path(booking), style:"font-size:25px", remote: true do  %>
+                    <i data-booking-deleted-id="<%= booking.id %>" class="fas fa-times text-right" style="color:red"></i>
+                  <% end %>
               </div>
             </div>
           <% end %>
@@ -64,7 +61,7 @@
     <div class="col-4 offset-1 my-3">
       <p class="mt-3"><strong>Tes MIFLRs</strong></p>
       <div class="d-flex justify-content-around flex-wrap mb-3 border-top">
-        <% @user.mothers.first(5).each do |mother| %>
+        <% @user.mothers.first(2).each do |mother| %>
           <%= link_to mother_path(mother) do %>
             <div class="user-right-column-mother-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path mother.photos.sample.key, crop: :thumb, gravity: :face, width: 200, height: 200 %>')">
               <%= mother.name %>
@@ -76,13 +73,13 @@
 
   </div>
 
-  <div class="Cuser-right-column col-6 offset-3 mt-3" style="padding-right: 0; padding-left: 0">
+  <div class="user-right-column col-6 offset-3 my-3" style="padding-right: 0; padding-left: 0">
     <p class="mt-3"><strong>Tes réservations</strong></p>
         <% @bookings.each do |booking| %>
       <div class="border d-flex justify-content-between align-items-center shadow-sm rounded p-2 mb-1">
           <%= cl_image_tag booking.mother.photos.first.key, class: "avatar" %>
           <p style="margin-bottom: 0px; width: 300px;">
-            <span style="font-size:16px">Duree: <%= (booking.starts_at.nil?)||(booking.ends_at.nil?) ? "" : ((Date.parse(booking.starts_at) - Date.parse(booking.ends_at)).to_i)%> jours</span>
+            <span style="font-size:16px">Duree: <%= (booking.starts_at.nil?)||(booking.ends_at.nil?) ? "" : ((Date.parse(booking.ends_at) - Date.parse(booking.starts_at)).to_i)%> jours</span>
             <br>
             <small>Du <%= booking.starts_at %> au
             <%= booking.ends_at %></small>
@@ -90,7 +87,7 @@
           </p>
           <div>
             <% if booking.decision %>
-              <p style="font-size:16px"> Requête: <%= booking.accept ? "✓" : "☒"%></p>
+              <p style="font-size:16px"> Requête: <%= booking.accept ? "✓" : "X"%></p>
               <% if booking.accept %>
                 <p style="font-size:16px; margin-bottom: 0px">Status: <%= booking.done ? "👌" : "⏳"%></p>
               <% end %>
