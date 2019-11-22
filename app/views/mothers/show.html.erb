@@ -42,19 +42,39 @@
     <!--      J'ARRETTE ICI --------- -->
     <%= render "reviews-board" %>
     </div>
-    <% if current_user %>
+
+    <% if current_user == User.find(@mother.user_id) %>
+      <div class="booking-card col-3 offset-1">
+        <div class="container">
+          <div class="flex-card-condition">
+            <h2 class="text-center py-5">Votre MILFR</h2>
+            <p class=" pb-3"><i class="fas fa-euro-sign" style="color:#B71D12"> Votre MILFR a gagné 0 euro</i></p>
+            <p class="mb-3"><i class="fas fa-female" style="color:#B71D12"> Votre MILFR a été louée 0 fois</i></p>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h6 class="pt-5">Meme si vous aimez enormement votre MILFR vous ne pouvez pas la louer, déso pas déso.</h6>
+
+          </div>
+        </div>
+      </div>
+    <% elsif current_user %>
       <div class="booking-card col-3 offset-1">
         <div class="container">
           <h3 class="text-center">Ajoutez des dates pour voir le prix</h3>
         </div>
-            <%= simple_form_for [@mother, @booking] do |f| %>
-            <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_start"} %>
-            <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
-            <div class="d-flex justify-content-between align-items-center"  data-toggle="modal" data-target="#CheckOutModal">
-              <%= f.button :submit, "Book now", id: 'booking-button', data: { confirm: "Do you validate the booking? You will find the receipt and the money will be directly withdrawn from your pocket."}, class: "btn btn-flat" %>
-              <h3 class="font-weight-bold" id="price-assessment"></h3>
-            </div>
-            <% end %>
+        <%= simple_form_for [@mother, @booking] do |f| %>
+          <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_start"} %>
+          <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
+          <div class="d-flex justify-content-between align-items-center"  data-toggle="modal" data-target="#CheckOutModal">
+            <%= f.button :submit, "Book now", id: 'booking-button', data: { confirm: "Do you validate the booking? You will find the receipt and the money will be directly withdrawn from your pocket."}, class: "btn btn-flat" %>
+            <h3 class="font-weight-bold" id="price-assessment"></h3>
+          </div>
+        <% end %>
         <div>
           <p class="text-center"></p>
         </div>
@@ -64,7 +84,6 @@
           </p>
         </div>
       </div>
-
       <div class="modal" tabindex="-1" role="dialog" id="CheckOutModal">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -103,7 +122,4 @@
     <% end %>
   </div>
 </div>
-
-
-
 
